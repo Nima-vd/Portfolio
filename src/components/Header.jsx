@@ -10,6 +10,7 @@ export default function Header() {
         </div>
         <div className="hidden md:flex gap-8">
           <a className="font-label-md text-label-md text-primary font-semibold border-b-2 border-primary" href="#hero">Home</a>
+          <a className="font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="#education">Education</a>
           <a className="font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="#projects">Projects</a>
           <a className="font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="#skills">Skills</a>
           <a className="font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="#experience">Experience</a>
