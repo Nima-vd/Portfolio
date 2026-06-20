@@ -11,24 +11,14 @@ export default function Hero() {
         <div className="max-w-3xl">
 
           {/* Profile Image + Badge */}
-          <div className="flex items-center gap-4 mb-stack-sm">
+          <div className="flex items-center gap-3 mb-stack-sm">
             <img
               src={profileImage}
               alt="Nima Norbu Sherpa"
-              className="w-20 h-20 rounded-full object-cover border-2 border-primary shadow-lg"
+              className="w-22 h-23 rounded-full object-cover border-2 border-primary shadow-lg"
             />
 
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full text-primary">
-              <span
-                className="material-symbols-outlined text-sm"
-                data-icon="verified"
-              >
-                verified
-              </span>
-              <span className="font-label-sm text-label-sm">
-                Junior Data Analyst
-              </span>
-            </div>
+    
           </div>
 
           <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack-sm">

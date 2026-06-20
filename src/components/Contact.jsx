@@ -25,17 +25,17 @@ export default function Contact() {
     {
       icon: 'location_on',
       title: 'Location',
-      content: 'Chengalpet, Tamil Nadu, India'
+      content: 'Bouddha, Kathmandu , Nepal'
     },
     {
       icon: 'call',
       title: 'Phone',
-      content: '+91 82484 37841'
+      content: '+977 9803059811'
     },
     {
       icon: 'mail',
       title: 'Email',
-      content: 'niman.norbu.sherpa@email.com'
+      content: 'nimannorbu353@gmail.com'
     }
   ]
 

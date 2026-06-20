@@ -1,27 +1,8 @@
 import React from 'react'
 
 const experiences = [
-  {
-    period: '2024 - Present',
-    role: 'Data Analyst',
-    organization: 'Portfolio Projects',
-    summary: 'Built reporting workflows across healthcare, sales, and operations datasets using Power BI, Python, Excel, and SQL.',
-    highlights: ['Dashboard design', 'Data modeling', 'Insight reporting']
-  },
-  {
-    period: '2023 - 2024',
-    role: 'Business Intelligence Trainee',
-    organization: 'Analytics Practice',
-    summary: 'Practiced end-to-end analysis from raw data cleanup to stakeholder-ready visualizations and recommendations.',
-    highlights: ['Python analysis', 'Excel automation', 'Presentation design']
-  },
-  {
-    period: '2022 - 2023',
-    role: 'Creative Design Contributor',
-    organization: 'Independent Work',
-    summary: 'Created clear visual assets and layouts for reports, social graphics, and project presentations.',
-    highlights: ['Canva', 'Figma', 'Visual storytelling']
-  }
+  
+   
 ]
 
 export default function Experience() {
