@@ -1,5 +1,4 @@
 import React from 'react'
-import certificateImage from '../Assets/image.png'
 
 export default function Certificates() {
   return (
@@ -38,11 +37,10 @@ export default function Certificates() {
           </div>
 
           <div className="bg-surface-container-high p-3 sm:p-4">
-            <img
-              src={certificateImage}
-              alt="Deloitte Australia Data Analytics Job Simulation certificate"
-              className="w-full max-h-[720px] object-contain bg-white rounded-xl"
-            />
+            <div className="rounded-xl border border-outline-variant/30 bg-white p-6 text-center text-on-surface-variant">
+              <span className="material-symbols-outlined text-5xl text-primary" data-icon="workspace_premium">workspace_premium</span>
+              <p className="mt-3 font-body-md text-body-md">Certificate details and proof can be shared upon request.</p>
+            </div>
           </div>
         </div>
       </div>

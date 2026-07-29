@@ -1,7 +1,0 @@
-[2m1:45:24 PM[22m [33m[1m[vite][22m[39m [33mwarning: `esbuild` option was specified by "vite:react-babel" plugin. This option is deprecated, please use `oxc` instead.[39m
-[2m1:45:24 PM[22m [33m[1m[vite][22m[39m [33mwarning: `optimizeDeps.esbuildOptions` option was specified by "vite:react-babel" plugin. This option is deprecated, please use `optimizeDeps.rolldownOptions` instead.[39m
-[33mYou or a plugin you are using have set `optimizeDeps.esbuildOptions` but this option is now deprecated. Vite now uses Rolldown to optimize the dependencies. Please use `optimizeDeps.rolldownOptions` instead.[39m
-
-[1m[33mwarn[39m[22m - The `content` option in your Tailwind CSS configuration is missing or empty.
-[1m[33mwarn[39m[22m - Configure your content sources or your generated CSS will be missing styles.
-[1m[33mwarn[39m[22m - https://tailwindcss.com/docs/content-configuration

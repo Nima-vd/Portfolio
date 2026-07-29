@@ -1,5 +1,4 @@
 import React from 'react'
-import profileImage from '../Assets/profile.png'
 
 export default function Hero() {
   return (
@@ -12,11 +11,9 @@ export default function Hero() {
 
           {/* Profile Image + Badge */}
           <div className="flex items-center gap-3 mb-stack-sm">
-            <img
-              src={profileImage}
-              alt="Nima Norbu Sherpa"
-              className="w-22 h-23 rounded-full object-cover border-2 border-primary shadow-lg"
-            />
+            <div className="w-22 h-23 rounded-full border-2 border-primary shadow-lg bg-primary/10 flex items-center justify-center text-primary text-3xl font-semibold">
+              NS
+            </div>
 
     
           </div>

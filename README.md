@@ -1,148 +1,89 @@
 # Portfolio - React + Node.js + Express
 
-A modern portfolio website built with React for the frontend and Node.js + Express for the backend.
+A production-ready personal portfolio app with a single Vite React frontend and an Express API backend.
 
 ## Project Structure
 
 ```
 Portfolio/
-├── frontend/          # React Vite Application
-│   ├── src/
-│   │   ├── components/    # React Components
-│   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   └── index.css
-│   ├── package.json
-│   ├── vite.config.js
-│   ├── tailwind.config.js
-│   ├── postcss.config.js
-│   ├── index.html
-│   └── .env
-│
-├── backend/           # Express.js Server
-│   ├── routes/
-│   │   └── portfolio.js
-│   ├── controllers/
-│   │   └── portfolioController.js
+├── backend/
 │   ├── server.js
 │   ├── package.json
-│   └── .env
+│   ├── routes/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── config/
+│   ├── utils/
+│   └── .env.example
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── hooks/
+│   ├── services/
+│   ├── utils/
+│   ├── App.jsx
+│   └── main.jsx
+├── docs/
+│   ├── COMPLETE_GUIDE.md
+│   ├── QUICK_REFERENCE.md
+│   └── SETUP.md
+├── package.json
+├── package-lock.json
+├── vite.config.js
+├── tailwind.config.js
+├── postcss.config.js
+├── vercel.json
+├── README.md
+├── .gitignore
+└── .env.example
 ```
 
 ## Installation
 
-### Backend Setup
+### Install dependencies
 
-1. Navigate to the backend directory:
-```bash
-cd backend
-```
-
-2. Install dependencies:
 ```bash
 npm install
 ```
 
-3. Start the development server:
+### Start the frontend
+
 ```bash
 npm run dev
 ```
 
-The backend will run on `http://localhost:5000`
+The frontend is available at http://localhost:3000.
 
-### Frontend Setup
+### Start the backend
 
-1. Navigate to the frontend directory:
 ```bash
-cd frontend
+npm run backend
 ```
 
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the development server:
-```bash
-npm run dev
-```
-
-The frontend will run on `http://localhost:3000`
+The backend is available at http://localhost:5000.
 
 ## API Endpoints
 
-- `GET /api/portfolio` - Get complete portfolio data
-- `GET /api/profile` - Get profile information
-- `GET /api/skills` - Get skills list
-- `GET /api/projects` - Get projects list
-- `GET /api/education` - Get education and training data
-- `GET /api/experience` - Get experience data
-- `GET /api/contact` - Get contact information
-- `POST /api/contact` - Submit contact form
-- `GET /health` - Health check
+- GET /api/portfolio - Get complete portfolio data
+- GET /api/profile - Get profile information
+- GET /api/skills - Get skills list
+- GET /api/projects - Get projects list
+- GET /api/education - Get education and training data
+- GET /api/experience - Get experience data
+- GET /api/contact - Get contact information
+- POST /api/contact - Submit contact form
+- GET /health - Health check
 
-## Features
+## Build
 
-- ✅ Responsive Design (Mobile & Desktop)
-- ✅ Smooth Animations and Transitions
-- ✅ Progress Bar Animations on Scroll
-- ✅ Material Design Icons
-- ✅ Tailwind CSS Styling
-- ✅ Contact Form Integration
-- ✅ RESTful API Backend
-- ✅ CORS Enabled
-
-## Technologies Used
-
-### Frontend
-- React 18
-- Vite
-- Tailwind CSS
-- Axios (for API calls)
-
-### Backend
-- Node.js
-- Express.js
-- CORS
-- Dotenv
-
-## Building for Production
-
-### Frontend Build:
 ```bash
-cd frontend
 npm run build
-```
-
-### Running Backend in Production:
-```bash
-cd backend
-npm start
-```
-
-## Contact Form Usage
-
-To submit a contact form, send a POST request to `/api/contact` with the following JSON payload:
-
-```json
-{
-  "name": "Your Name",
-  "email": "your.email@example.com",
-  "message": "Your message here"
-}
 ```
 
 ## Notes
 
-- The frontend is configured to proxy API requests to the backend via Vite
-- All portfolio data is currently stored in the backend controller
-- For production, consider using a database (MongoDB, PostgreSQL, etc.)
-- Email functionality should be added via services like SendGrid or Nodemailer
-
-## License
-
-ISC
-
-## Author
-
-Niman Norbu Sherpa
+- The frontend proxies API requests to the backend via Vite.
+- The portfolio data is served from the Express controller in the backend folder.
+- The app is ready for a static frontend deployment on Vercel, while the backend can be hosted separately.
