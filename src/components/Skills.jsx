@@ -48,7 +48,6 @@ export default function Skills() {
     { icon: 'terminal', name: 'Python', percentage: 85 },
     { icon: 'table_rows', name: 'Excel', percentage: 85 },
     { icon: 'database', name: 'SQL', percentage: 80 },
-    { icon: 'palette', name: 'Canva', percentage: 75 },
     { icon: 'draw', name: 'Figma', percentage: 70 }
   ]
 

@@ -14,8 +14,6 @@ export default function Hero() {
             <div className="w-22 h-23 rounded-full border-2 border-primary shadow-lg bg-primary/10 flex items-center justify-center text-primary text-3xl font-semibold">
               NS
             </div>
-
-    
           </div>
 
           <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack-sm">

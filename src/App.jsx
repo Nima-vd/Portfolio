@@ -14,30 +14,24 @@ import FAB from './components/FAB'
 
 function App() {
   useEffect(() => {
-    // Smooth scroll for anchor links
+    // Smooth scroll for anchor links inside the page content only
+    const main = document.querySelector('main') || document
+    const anchors = main.querySelectorAll('a[href^="#"]')
+
     const handleAnchorClick = (e) => {
       const href = e.currentTarget.getAttribute('href')
       if (href?.startsWith('#')) {
         e.preventDefault()
         const target = document.querySelector(href)
         if (target) {
-          window.scrollTo({
-            top: target.offsetTop - 64,
-            behavior: 'smooth'
-          })
+          window.scrollTo({ top: target.offsetTop - 64, behavior: 'smooth' })
         }
       }
     }
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', handleAnchorClick)
-    })
+    anchors.forEach(anchor => anchor.addEventListener('click', handleAnchorClick))
 
-    return () => {
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.removeEventListener('click', handleAnchorClick)
-      })
-    }
+    return () => anchors.forEach(anchor => anchor.removeEventListener('click', handleAnchorClick))
   }, [])
 
   return (
