@@ -48,7 +48,16 @@ export default function Header() {
             <a
               key={item.id}
               href={`#${item.id}`}
-              onClick={() => setActiveId(item.id)}
+              onClick={(e) => {
+                e.preventDefault()
+                setActiveId(item.id)
+                const target = document.getElementById(item.id)
+                if (target) {
+                  const offset = 88
+                  const top = target.getBoundingClientRect().top + window.scrollY - offset
+                  window.scrollTo({ top, behavior: 'smooth' })
+                }
+              }}
               className={`font-label-md text-label-md transition-colors ${
                 activeId === item.id
                   ? 'text-primary font-semibold border-b-2 border-primary'
@@ -59,7 +68,18 @@ export default function Header() {
             </a>
           ))}
         </div>
-        <button className="bg-primary-container text-on-primary-container px-4 py-2 rounded-lg font-label-md text-label-md transition-all active:scale-95 hover:opacity-90">
+        <button
+          className="bg-primary-container text-on-primary-container px-4 py-2 rounded-lg font-label-md text-label-md transition-all active:scale-95 hover:opacity-90"
+          onClick={() => {
+            const target = document.getElementById('contact')
+            if (target) {
+              const offset = 88
+              const top = target.getBoundingClientRect().top + window.scrollY - offset
+              window.scrollTo({ top, behavior: 'smooth' })
+              setActiveId('contact')
+            }
+          }}
+        >
           Contact
         </button>
       </div>
