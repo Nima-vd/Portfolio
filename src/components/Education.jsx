@@ -5,8 +5,8 @@ export default function Education() {
     {
       year: '2023 - 2026',
       degree: 'Bachelor (Hons) in Computer Science',
-      institution: 'Herald College Kathmandu',
-      grade: 'Currently Pursuing',
+      institution: 'Herald College Kathmandu (Affiliated with University of Wolverhampton, UK)',
+      grade: 'Graduate',
     },
     {
       year: '2022',

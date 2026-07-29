@@ -11,11 +11,13 @@ const PassionCard = ({ icon, label }) => {
 
 export default function Passions() {
   const passions = [
-    { icon: 'self_improvement', label: 'Yoga' },
-    { icon: 'fitness_center', label: 'Gym' },
-    { icon: 'strategy', label: 'Chess' },
+    { icon: 'fitness_center', label: 'Calisthenics' },
+    { icon: 'directions_run', label: 'Running' },
+    { icon: 'hiking', label: 'Hiking' },
+    { icon: 'sports_soccer', label: 'Football' },
     { icon: 'psychology', label: 'Learning' }
-  ]
+  ];
+
 
   return (
     <section className="py-stack-xl bg-background">

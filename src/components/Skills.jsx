@@ -44,12 +44,13 @@ const SkillCard = ({ icon, name, percentage }) => {
 
 export default function Skills() {
   const skills = [
-    { icon: 'bar_chart', name: 'Power BI', percentage: 90 },
-    { icon: 'terminal', name: 'Python', percentage: 85 },
-    { icon: 'table_rows', name: 'Excel', percentage: 85 },
-    { icon: 'database', name: 'SQL', percentage: 80 },
-    { icon: 'draw', name: 'Figma', percentage: 70 }
-  ]
+  { icon: 'bar_chart', name: 'Power BI', percentage: 90 },
+  { icon: 'analytics', name: 'Data Visualization', percentage: 90 },
+  { icon: 'query_stats', name: 'Data Analysis', percentage: 90 },
+  { icon: 'terminal', name: 'Python', percentage: 85 },
+  { icon: 'table_rows', name: 'Excel', percentage: 85 },
+  { icon: 'database', name: 'SQL', percentage: 85 },
+]
 
   return (
     <section className="py-stack-xl bg-surface-container-lowest" id="skills">
