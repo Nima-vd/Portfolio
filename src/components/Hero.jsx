@@ -1,6 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import localProfile from '../assets/profile.png'
 
 export default function Hero() {
+  const [imgSrc, setImgSrc] = useState(null)
+  const [imgLoaded, setImgLoaded] = useState(false)
+
+  useEffect(() => {
+    // Prefer a local static image bundled with the app when present
+    if (localProfile) {
+      setImgSrc(localProfile)
+      setImgLoaded(true)
+      return
+    }
+
+    // If no local image, prefer explicit env URL (VITE_PROFILE_IMAGE_URL)
+    const envUrl = import.meta.env.VITE_PROFILE_IMAGE_URL
+    if (envUrl) {
+      const img = new Image()
+      img.src = envUrl
+      img.onload = () => {
+        setImgSrc(envUrl)
+        setImgLoaded(true)
+      }
+      img.onerror = () => setImgLoaded(false)
+      return
+    }
+  }, [])
+
   return (
     <section
       className="relative overflow-hidden min-h-[795px] flex items-center"
@@ -11,9 +37,17 @@ export default function Hero() {
 
           {/* Profile Image + Badge */}
           <div className="flex items-center gap-3 mb-stack-sm">
-            <div className="w-22 h-23 rounded-full border-2 border-primary shadow-lg bg-primary/10 flex items-center justify-center text-primary text-3xl font-semibold">
-              NS
-            </div>
+            {imgLoaded && imgSrc ? (
+              <img
+                src={imgSrc}
+                alt="Nima Norbu Sherpa"
+                className="w-22 h-23 rounded-full object-cover border-2 border-primary shadow-lg"
+              />
+            ) : (
+              <div className="w-22 h-23 rounded-full border-2 border-primary shadow-lg bg-primary/10 flex items-center justify-center text-primary text-3xl font-semibold">
+                NS
+              </div>
+            )}
           </div>
 
           <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack-sm">
