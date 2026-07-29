@@ -26,10 +26,10 @@ export default function Education() {
     <section id="education" className="py-stack-xl">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
 
-        <h2 className="font-display-sm text-display-sm text-on-surface mb-stack-xs">
-          <b>Education</b>
+        <h2 className="font-headline-md text-headline-md text-on-surface mb-stack-xs">
+          Education
         </h2>
-        <p className="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg">
+        <p className="text-secondary font-body-md mt-2 mb-stack-lg">
           My academic journey and qualifications.
         </p>
 
