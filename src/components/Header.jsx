@@ -15,24 +15,25 @@ export default function Header() {
     const sections = navItems.map(item => document.getElementById(item.id)).filter(Boolean)
     if (!sections.length) return
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter(entry => entry.isIntersecting)
-        if (visible.length) {
-          const topMost = visible.reduce((prev, current) => {
-            return prev.boundingClientRect.top < current.boundingClientRect.top ? prev : current
-          })
-          setActiveId(topMost.target.id)
-        }
-      },
-      {
-        rootMargin: '-40% 0px -55% 0px',
-        threshold: 0.15
-      }
-    )
+    const getCurrentSection = () => {
+      const scrollPosition = window.scrollY + 120
+      const current = sections
+        .filter(section => section.offsetTop <= scrollPosition)
+        .sort((a, b) => b.offsetTop - a.offsetTop)[0]
+      return current || sections[0]
+    }
 
-    sections.forEach(section => observer.observe(section))
-    return () => observer.disconnect()
+    const updateActive = () => {
+      const currentSection = getCurrentSection()
+      if (currentSection) {
+        setActiveId(currentSection.id)
+      }
+    }
+
+    window.addEventListener('scroll', updateActive, { passive: true })
+    updateActive()
+
+    return () => window.removeEventListener('scroll', updateActive)
   }, [])
 
   return (
@@ -47,6 +48,7 @@ export default function Header() {
             <a
               key={item.id}
               href={`#${item.id}`}
+              onClick={() => setActiveId(item.id)}
               className={`font-label-md text-label-md transition-colors ${
                 activeId === item.id
                   ? 'text-primary font-semibold border-b-2 border-primary'
