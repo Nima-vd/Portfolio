@@ -15,7 +15,7 @@ const ProjectCard = ({ title, description, tag, imageSrc, link }) => {
         <h3 className="font-headline-sm text-headline-sm text-on-surface mb-2">{title}</h3>
         <p className="font-body-md text-body-md text-on-surface-variant mb-4">{description}</p>
         <a className="text-primary font-label-md text-label-md flex items-center gap-2 group-hover:gap-3 transition-all" href={link}>
-          View Case Study <span className="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+          GitHub Link <span className="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
         </a>
       </div>
     </div>
