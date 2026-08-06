@@ -8,7 +8,6 @@ export default function Footer() {
         <div className="flex gap-6">
           <a className="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors" href="#projects">Projects</a>
           <a className="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors" href="#education">Education</a>
-          <a className="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors" href="#experience">Experience</a>
           <a className="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors" href="#skills">Skills</a>
         </div>
         <p className="font-label-sm text-label-sm text-secondary">© 2024 Nima Norbu Sherpa.</p>
