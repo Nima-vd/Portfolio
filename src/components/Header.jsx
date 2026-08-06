@@ -4,8 +4,7 @@ const navItems = [
   { id: 'hero', label: 'Home' },
   { id: 'education', label: 'Education' },
   { id: 'projects', label: 'Projects' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'experience', label: 'Experience' }
+  { id: 'skills', label: 'Skills' }
 ]
 
 export default function Header() {
