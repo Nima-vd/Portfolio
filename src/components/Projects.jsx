@@ -23,27 +23,58 @@ const ProjectCard = ({ title, description, tag, imageSrc, link }) => {
 }
 
 export default function Projects() {
+  const createSvgImage = (title, accent, secondary) => {
+    const svg = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+        <rect width="1200" height="800" rx="36" fill="#0F172A"/>
+        <rect x="40" y="40" width="1120" height="720" rx="28" fill="url(#grad)"/>
+        <circle cx="930" cy="220" r="140" fill="${secondary}" opacity="0.28"/>
+        <circle cx="260" cy="620" r="180" fill="${accent}" opacity="0.22"/>
+        <path d="M140 610c90-120 180-180 292-180 120 0 201 58 304 58 94 0 183-48 260-132" stroke="white" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.9"/>
+        <rect x="180" y="190" width="300" height="120" rx="20" fill="rgba(255,255,255,0.16)"/>
+        <rect x="220" y="226" width="220" height="16" rx="8" fill="white" opacity="0.9"/>
+        <rect x="220" y="258" width="160" height="12" rx="6" fill="white" opacity="0.7"/>
+        <text x="180" y="92" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="700">${title}</text>
+        <text x="180" y="132" fill="rgba(255,255,255,0.82)" font-family="Segoe UI, Arial, sans-serif" font-size="24">Data-driven portfolio project</text>
+        <defs>
+          <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="${accent}"/>
+            <stop offset="100%" stop-color="${secondary}"/>
+          </linearGradient>
+        </defs>
+      </svg>`;
+
+    return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+  };
+
   const projects = [
     {
-      title: 'Healthcare Analytics',
-      description: 'Comprehensive COVID-19 Analysis using advanced Power BI modeling to track recovery and spread rates.',
-      tag: 'Power BI',
-      imageSrc: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDZJbzw8W34UzEWENdAuoAN3VjHS_nHDm0d-eMdOHemAQlaC24DxR4YB_qQ5-wdFnhnTBq7rpw-MV0CwvSBmAVWjGN1mAawtrKBnwwLRIGUpmnpXLGKmNfYPVZJ_lFGxjWIqpQoMNnMK59mIPMDWyi9ZGyJh6i6OwKPzi-_v1c1BNd0X3wAxpRO8ciTL13Xb36M4QjbvU64rVyt7g7hva33w_zPV3m5h2OXQgNBlIo17oTr6bI5j-REMLMFm-HLO0aEubRpbnuF5kA',
-      link: '#'
-    },
-    {
-      title: 'Business Intelligence',
-      description: 'In-depth Sales Analysis using Python (Pandas/Matplotlib) to identify seasonal trends and growth opportunities.',
+      title: 'Nepal Earthquake Risk Analysis',
+      description: 'Python workflow for collecting, cleaning, and visualizing earthquake data from the USGS API for Nepal.',
       tag: 'Python',
-      imageSrc: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC1xA4k7oKt_VQnqDDmNPPmG0m44pOHBzl4I77UGTU15LWVwBYUzdYDm3pBkxLfUp6xbvdUH2Aas4MA5yDMQi31aAUstSZPLRy4YpdYKzCDy9_itgQ_enU4PeyLzSziRWpMtV0Q7yag3Yh1Fvyr2Tp3cRzXaaDWMDkIL81fflmAZYkOWuKHQ3_RY3Sy78Pwr5oh5q2ixbHd7TQNjVsR6vUXLoGW3gjth_Wlo5wn71g3EC5IG7xlQ9h1kKkRYytV_HyMAE7Dbz6zZcE',
-      link: '#'
+      imageSrc: createSvgImage('Earthquake Analysis', '#f59e0b', '#dc2626'),
+      link: 'https://github.com/Nima-vd/Earthquake_analysis'
     },
     {
-      title: 'Healthcare Database',
-      description: 'Scalable Hospital Management System designed with SQL for efficient patient records and inventory tracking.',
-      tag: 'SQL',
-      imageSrc: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDJ-c-E8a_9WipNTaW-sSUEYYFfs_AnE6JHGfN3WWPWYXEoqyg0KmTUPY4Ubgffo4PcvmpPjlLEZS15K-JkcbWOOZN_yTM5g6xnY53SSW6SDSZElX7GrJYmdRCIacJ91IvnCXm0Y0p_-MfEGCLpjXP8oqCtWf2ke1F1BOJPKsdkUi7Rw7K0bV7BeNAywDLD4ZEUnPmH-TNEiqjAl4z_sHJ3AgAB6RDyjrUVcgnMP26hyr34cNaQrQ8gex6ikKK9uBdwV0c8SA1-YvU',
-      link: '#'
+      title: 'Sadaksachet',
+      description: 'Final year project focused on road safety and community-driven reporting for Nepal.',
+      tag: 'Full Stack',
+      imageSrc: createSvgImage('Sadaksachet', '#14b8a6', '#2563eb'),
+      link: 'https://github.com/Nima-vd/sadaksachet'
+    },
+    {
+      title: 'Data Professional Survey Breakdown',
+      description: 'Interactive Power BI dashboard that highlights salary, skills, and career insights from a survey of data professionals.',
+      tag: 'Power BI',
+      imageSrc: createSvgImage('Power BI Dashboard', '#7c3aed', '#0ea5e9'),
+      link: 'https://github.com/Nima-vd/Data-Professional-Survey-PowerBI'
+    },
+    {
+      title: 'Nepal Economic Indicators Dashboard',
+      description: 'Streamlit dashboard analyzing GDP growth, inflation, and remittance trends in Nepal from 2000 to 2023.',
+      tag: 'Streamlit',
+      imageSrc: createSvgImage('Economic Dashboard', '#10b981', '#0f766e'),
+      link: 'https://github.com/Nima-vd/Nepal-Economic-Dashboard'
     }
   ]
 
