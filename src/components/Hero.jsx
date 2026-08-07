@@ -56,22 +56,6 @@ export default function Hero() {
             sophisticated data analytics.
           </motion.p>
 
-          <div className="hero-copy flex flex-col sm:flex-row gap-stack-sm opacity-100">
-            <MagneticButton
-              className="relative z-10 bg-[#2d9cdb] text-white px-8 py-4 rounded-lg font-label-md text-label-md text-center shadow-lg shadow-[#2d9cdb]/20 hover:bg-[#51e0bb] hover:text-[#061218] transition-all flex items-center justify-center gap-2"
-              href="#about"
-            >
-              Explore My Journey <ArrowRight size={17} />
-            </MagneticButton>
-
-            <MagneticButton
-              className="relative z-10 border border-[#6f9eaa] bg-[#10232c] text-white px-8 py-4 rounded-lg font-label-md text-label-md text-center shadow-lg shadow-black/20 hover:border-[#51e0bb] hover:bg-[#173944] transition-all flex items-center justify-center gap-2"
-              href="#"
-            >
-              Download Resume <Download size={16} />
-            </MagneticButton>
-          </div>
-
         </motion.div>
       </div>
       <motion.div animate={{ y: [0, 9, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }} className="absolute bottom-10 left-1/2 -translate-x-1/2 text-secondary flex flex-col items-center gap-2">
