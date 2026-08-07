@@ -56,7 +56,7 @@ export default function Hero() {
             sophisticated data analytics.
           </motion.p>
 
-          <motion.div variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } } }} className="flex flex-col sm:flex-row gap-stack-sm">
+          <div className="flex flex-col sm:flex-row gap-stack-sm opacity-100">
             <MagneticButton
               className="relative z-10 bg-[#2d9cdb] text-white px-8 py-4 rounded-lg font-label-md text-label-md text-center shadow-lg shadow-[#2d9cdb]/20 hover:bg-[#51e0bb] hover:text-[#061218] transition-all flex items-center justify-center gap-2"
               href="#about"
@@ -70,7 +70,7 @@ export default function Hero() {
             >
               Download Resume <Download size={16} />
             </MagneticButton>
-          </motion.div>
+          </div>
 
         </motion.div>
       </div>
