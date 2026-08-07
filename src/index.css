@@ -73,7 +73,28 @@ body {
 .bg-white { background-color: #0d2029 !important; }
 .text-on-surface, .text-on-background { color: #edf5f7 !important; }
 .text-on-surface-variant, .text-secondary { color: #9db1b8 !important; }
+.text-primary { color: #7af0d0 !important; }
 .border-outline-variant { border-color: #2b4853 !important; }
+.eyebrow { color: #7af0d0; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+.glass-panel { border: 1px solid rgba(116, 167, 180, 0.2); border-radius: 0.75rem; background: linear-gradient(135deg, rgba(19, 40, 50, 0.78), rgba(9, 23, 29, 0.78)); padding: 1.5rem; box-shadow: 0 18px 50px rgba(0, 0, 0, 0.14); }
+.glass-panel:hover { border-color: rgba(81, 224, 208, 0.45); }
+.stack-group { border-top: 1px solid rgba(116, 167, 180, 0.2); padding-top: 1rem; }
+.service-card { min-height: 190px; }
+.learning-chip { border: 1px solid rgba(116, 167, 180, 0.25); border-radius: 999px; color: #c4d4d8; padding: 0.45rem 0.65rem; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; }
+.career-objective { border-left: 2px solid #51e0d0; padding-left: 1rem; }
+.resume-preview { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; border: 1px solid rgba(116, 167, 180, 0.2); border-radius: 0.75rem; background: linear-gradient(135deg, rgba(19, 40, 50, 0.78), rgba(9, 23, 29, 0.78)); padding: 1.5rem; }
+.resume-preview-meta { display: grid; gap: 0.45rem; border-left: 1px solid rgba(116, 167, 180, 0.2); padding-left: 1.5rem; }
+.resume-preview-meta span { color: #7af0d0; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.resume-preview-meta strong { color: #edf5f7; font-size: 0.95rem; font-weight: 500; margin-bottom: 0.65rem; }
+.project-stats { display: flex; gap: 1rem; color: #9db1b8; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.project-stats span { display: grid; gap: 0.25rem; border-left: 1px solid rgba(116, 167, 180, 0.25); padding-left: 1rem; }
+.project-stats strong { color: #7af0d0; font-size: 1.25rem; }
+.filter-chip { flex: 0 0 auto; border: 1px solid rgba(116, 167, 180, 0.25); border-radius: 999px; color: #9db1b8; padding: 0.55rem 0.85rem; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; }
+.filter-chip:hover, .filter-chip.is-active { border-color: #51e0d0; background: rgba(81, 224, 208, 0.1); color: #edf5f7; }
+.case-study-grid { display: grid; gap: 1rem; }
+.case-study-grid > div { border-left: 1px solid rgba(116, 167, 180, 0.2); padding-left: 0.75rem; }
+.empty-projects { min-height: 150px; display: grid; align-content: center; }
+@media (max-width: 640px) { .resume-preview { grid-template-columns: 1fr; } .resume-preview-meta { border-left: 0; border-top: 1px solid rgba(116, 167, 180, 0.2); padding-left: 0; padding-top: 1.25rem; } }
 .skill-card, .project-card { box-shadow: 0 18px 50px rgba(0, 0, 0, 0.14); }
 .skill-card:hover, .project-card:hover { border-color: rgba(45, 156, 219, 0.65); box-shadow: 0 24px 65px rgba(0, 0, 0, 0.28), 0 0 28px rgba(45, 156, 219, 0.1); }
 .skill-icon { transition: transform 0.3s ease, filter 0.3s ease; }

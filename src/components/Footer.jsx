@@ -6,7 +6,10 @@ export default function Footer() {
   return (
     <motion.footer initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="w-full py-stack-lg bg-surface-container-lowest border-t border-outline-variant/20">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex flex-col md:flex-row justify-between items-center gap-stack-sm">
-        <span className="font-display-lg text-headline-sm text-on-surface">NIMA NORBU SHERPA</span>
+        <div>
+          <span className="font-display-lg text-headline-sm text-on-surface">NIMA NORBU SHERPA</span>
+          <p className="font-label-sm text-label-sm text-secondary mt-1">Turning data into decisions.</p>
+        </div>
         <div className="flex gap-6">
           <a className="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors" href="#projects">Projects</a>
           <a className="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors" href="#education">Education</a>

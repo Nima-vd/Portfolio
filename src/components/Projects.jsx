@@ -1,113 +1,56 @@
-import React from 'react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
+import React, { useMemo, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { ArrowUpRight, ChevronDown, ExternalLink } from 'lucide-react'
 import { MagneticButton } from './Motion'
 
-const ProjectCard = ({ title, description, tag, imageSrc, link }) => {
-  const spotlightX = useSpring(useMotionValue('50%'), { stiffness: 180, damping: 24 })
-  const spotlightY = useSpring(useMotionValue('50%'), { stiffness: 180, damping: 24 })
+const filters = ['All', 'Power BI', 'Python', 'SQL', 'Streamlit', 'Web']
 
-  const handlePointerMove = (event) => {
-    const bounds = event.currentTarget.getBoundingClientRect()
-    spotlightX.set(`${event.clientX - bounds.left}px`)
-    spotlightY.set(`${event.clientY - bounds.top}px`)
-  }
+const createSvgImage = (title, accent, secondary) => {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"><rect width="1200" height="800" rx="36" fill="#0F172A"/><rect x="40" y="40" width="1120" height="720" rx="28" fill="url(#grad)"/><circle cx="930" cy="220" r="140" fill="${secondary}" opacity="0.28"/><circle cx="260" cy="620" r="180" fill="${accent}" opacity="0.22"/><path d="M140 610c90-120 180-180 292-180 120 0 201 58 304 58 94 0 183-48 260-132" stroke="white" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.9"/><text x="180" y="92" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="700">${title}</text><text x="180" y="132" fill="rgba(255,255,255,0.82)" font-family="Segoe UI, Arial, sans-serif" font-size="24">Data-driven portfolio project</text><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="${accent}"/><stop offset="100%" stop-color="${secondary}"/></linearGradient></defs></svg>`
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`
+}
 
+const projects = [
+  { title: 'Nepal Earthquake Risk Analysis', tag: 'Python', category: 'Python', description: 'A Python workflow for collecting, cleaning, and visualizing earthquake data from the USGS API for Nepal.', imageSrc: createSvgImage('Earthquake Analysis', '#f59e0b', '#dc2626'), link: 'https://github.com/Nima-vd/Earthquake_analysis', demo: null, problem: 'Make earthquake activity easier to inspect for a Nepal-focused analysis.', dataset: 'USGS earthquake API data for Nepal.', tools: 'Python, data collection, cleaning, and visualization.', methodology: 'Collect the source data, prepare it for analysis, then visualize patterns and risk signals.', dataCleaning: 'Standardize API fields and prepare records for consistent filtering and comparison.', analysis: 'Explore activity by location, timing, and earthquake characteristics.', insights: 'The workflow creates a repeatable view of location, timing, and earthquake activity.', value: 'Supports clearer exploration of hazard patterns and a foundation for future risk reporting.', challenges: 'Working with changing API responses and keeping the analysis focused on Nepal.', learned: 'How a reliable data pipeline improves the quality of downstream visual analysis.' },
+  { title: 'Sadaksachet', tag: 'Full Stack', category: 'Web', description: 'A final-year project focused on road safety and community-driven reporting for Nepal.', imageSrc: createSvgImage('Sadaksachet', '#14b8a6', '#2563eb'), link: 'https://github.com/Nima-vd/sadaksachet', demo: null, problem: 'Create a focused digital experience for community road-safety reporting.', dataset: 'User-generated road-safety reports; production dataset details are not published.', tools: 'Full-stack web development and database-backed application design.', methodology: 'Translate the reporting need into a usable application flow for collecting and reviewing incidents.', dataCleaning: 'The current portfolio does not publish a production data-cleaning workflow for this application.', analysis: 'The project centers on reporting flow and application structure rather than a published analytical dataset.', insights: 'The project demonstrates product thinking alongside software engineering.', value: 'Provides a foundation for more visible, community-informed road-safety conversations.', challenges: 'Balancing user reporting needs with a clear, practical application flow.', learned: 'How product requirements shape technical and data decisions.' },
+  { title: 'Data Professional Survey Breakdown', tag: 'Power BI', category: 'Power BI', description: 'An interactive Power BI dashboard highlighting salary, skills, and career insights from a survey of data professionals.', imageSrc: createSvgImage('Power BI Dashboard', '#7c3aed', '#0ea5e9'), link: 'https://github.com/Nima-vd/Data-Professional-Survey-PowerBI', demo: null, problem: 'Turn a broad survey into an accessible view of data-career patterns.', dataset: 'Survey data from data professionals.', tools: 'Power BI, data modeling, dashboard design, and visual analysis.', methodology: 'Organize survey dimensions into interactive views that support comparison and exploration.', dataCleaning: 'Prepare survey fields and categories so comparisons remain consistent across visuals.', analysis: 'Compare salary, skills, and career context through interactive dashboard views.', insights: 'The dashboard makes salary, skills, and career context easier to compare.', value: 'Shows how a broad survey can become a useful decision-support surface.', challenges: 'Presenting varied survey responses without obscuring important differences.', learned: 'How information design affects the usefulness of a business dashboard.' },
+  { title: 'Nepal Economic Indicators Dashboard', tag: 'Streamlit', category: 'Streamlit', description: 'A Streamlit dashboard analyzing GDP growth, inflation, and remittance trends in Nepal from 2000 to 2023.', imageSrc: createSvgImage('Economic Dashboard', '#10b981', '#0f766e'), link: 'https://github.com/Nima-vd/Nepal-Economic-Dashboard', demo: null, problem: 'Make long-term economic indicators easier to explore together.', dataset: 'Nepal economic indicators from 2000 to 2023.', tools: 'Python, Streamlit, data preparation, and interactive visualization.', methodology: 'Bring multiple indicators into one navigable dashboard for trend comparison.', dataCleaning: 'Align indicator names, years, and values to support consistent time-series views.', analysis: 'Compare GDP growth, inflation, and remittance trends across the shared period.', insights: 'Users can inspect GDP, inflation, and remittance movements across the same time window.', value: 'Creates a clearer starting point for contextual economic analysis.', challenges: 'Making indicators with different scales readable in one dashboard.', learned: 'How interactive controls can make longitudinal analysis more approachable.' },
+]
+
+function ProjectCard({ project, index }) {
+  const [expanded, setExpanded] = useState(false)
   return (
-    <motion.article onPointerMove={handlePointerMove} whileHover={{ y: -8, rotateX: 2, rotateY: -2 }} transition={{ duration: 0.35 }} className="group bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden project-card" style={{ perspective: 900 }}>
-      <motion.div className="project-spotlight" style={{ left: spotlightX, top: spotlightY }} aria-hidden="true" />
+    <motion.article initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ delay: index * 0.07 }} className="group bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden project-card" style={{ perspective: 900 }}>
       <div className="aspect-video bg-surface-container-high overflow-hidden relative">
-        <img 
-          alt={title} 
-          loading="lazy"
-          decoding="async"
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
-          src={imageSrc}
-        />
+        <img alt={`${project.title} project preview`} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src={project.imageSrc} />
         <div className="absolute inset-0 bg-gradient-to-t from-[#09171d]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        <motion.div initial={{ opacity: 0, y: -8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-label-sm">{tag}</motion.div>
+        <span className="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-label-sm">{project.tag}</span>
       </div>
       <div className="p-6">
-        <h3 className="font-headline-sm text-headline-sm text-on-surface mb-2">{title}</h3>
-        <p className="font-body-md text-body-md text-on-surface-variant mb-4">{description}</p>
-        <MagneticButton className="text-primary font-label-md text-label-md inline-flex items-center gap-2 group-hover:gap-3 transition-all" href={link} target="_blank" rel="noreferrer">
-          GitHub Link <ArrowUpRight size={15} />
-        </MagneticButton>
+        <h3 className="font-headline-sm text-headline-sm text-on-surface mb-2">{project.title}</h3>
+        <p className="font-body-md text-body-md text-on-surface-variant mb-5">{project.description}</p>
+        <div className="flex items-center gap-4 flex-wrap">
+          <MagneticButton className="text-primary font-label-md text-label-md inline-flex items-center gap-2" href={project.link} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={15} /></MagneticButton>
+          {project.demo ? <a className="text-secondary font-label-md text-label-md inline-flex items-center gap-2 hover:text-primary transition-colors" href={project.demo} target="_blank" rel="noreferrer">Live demo <ExternalLink size={14} /></a> : <span className="text-secondary/70 font-label-sm text-label-sm inline-flex items-center gap-2"><ExternalLink size={14} /> Demo not published</span>}
+          <button type="button" onClick={() => setExpanded(open => !open)} aria-expanded={expanded} className="ml-auto text-secondary hover:text-primary transition-colors" aria-label={`${expanded ? 'Hide' : 'Show'} ${project.title} case study`}><ChevronDown size={18} className={`transition-transform ${expanded ? 'rotate-180' : ''}`} /></button>
+        </div>
+        <AnimatePresence initial={false}>
+          {expanded && <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden"><dl className="case-study-grid mt-6 pt-5 border-t border-outline-variant/20">{[['Problem', project.problem], ['Dataset', project.dataset], ['Tools used', project.tools], ['Methodology', project.methodology], ['Data cleaning', project.dataCleaning], ['Analysis', project.analysis], ['Key insights', project.insights], ['Business impact', project.value], ['Challenges', project.challenges], ['What I learned', project.learned]].map(([label, text]) => <div key={label}><dt className="font-label-sm text-label-sm text-primary">{label}</dt><dd className="font-body-md text-body-md text-on-surface-variant mt-1">{text}</dd></div>)}</dl></motion.div>}
+        </AnimatePresence>
       </div>
     </motion.article>
   )
 }
 
 export default function Projects() {
-  const createSvgImage = (title, accent, secondary) => {
-    const svg = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
-        <rect width="1200" height="800" rx="36" fill="#0F172A"/>
-        <rect x="40" y="40" width="1120" height="720" rx="28" fill="url(#grad)"/>
-        <circle cx="930" cy="220" r="140" fill="${secondary}" opacity="0.28"/>
-        <circle cx="260" cy="620" r="180" fill="${accent}" opacity="0.22"/>
-        <path d="M140 610c90-120 180-180 292-180 120 0 201 58 304 58 94 0 183-48 260-132" stroke="white" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.9"/>
-        <rect x="180" y="190" width="300" height="120" rx="20" fill="rgba(255,255,255,0.16)"/>
-        <rect x="220" y="226" width="220" height="16" rx="8" fill="white" opacity="0.9"/>
-        <rect x="220" y="258" width="160" height="12" rx="6" fill="white" opacity="0.7"/>
-        <text x="180" y="92" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="700">${title}</text>
-        <text x="180" y="132" fill="rgba(255,255,255,0.82)" font-family="Segoe UI, Arial, sans-serif" font-size="24">Data-driven portfolio project</text>
-        <defs>
-          <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="${accent}"/>
-            <stop offset="100%" stop-color="${secondary}"/>
-          </linearGradient>
-        </defs>
-      </svg>`;
-
-    return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
-  };
-
-  const projects = [
-    {
-      title: 'Nepal Earthquake Risk Analysis',
-      description: 'Python workflow for collecting, cleaning, and visualizing earthquake data from the USGS API for Nepal.',
-      tag: 'Python',
-      imageSrc: createSvgImage('Earthquake Analysis', '#f59e0b', '#dc2626'),
-      link: 'https://github.com/Nima-vd/Earthquake_analysis'
-    },
-    {
-      title: 'Sadaksachet',
-      description: 'Final year project focused on road safety and community-driven reporting for Nepal.',
-      tag: 'Full Stack',
-      imageSrc: createSvgImage('Sadaksachet', '#14b8a6', '#2563eb'),
-      link: 'https://github.com/Nima-vd/sadaksachet'
-    },
-    {
-      title: 'Data Professional Survey Breakdown',
-      description: 'Interactive Power BI dashboard that highlights salary, skills, and career insights from a survey of data professionals.',
-      tag: 'Power BI',
-      imageSrc: createSvgImage('Power BI Dashboard', '#7c3aed', '#0ea5e9'),
-      link: 'https://github.com/Nima-vd/Data-Professional-Survey-PowerBI'
-    },
-    {
-      title: 'Nepal Economic Indicators Dashboard',
-      description: 'Streamlit dashboard analyzing GDP growth, inflation, and remittance trends in Nepal from 2000 to 2023.',
-      tag: 'Streamlit',
-      imageSrc: createSvgImage('Economic Dashboard', '#10b981', '#0f766e'),
-      link: 'https://github.com/Nima-vd/Nepal-Economic-Dashboard'
-    }
-  ]
-
+  const [activeFilter, setActiveFilter] = useState('All')
+  const filteredProjects = useMemo(() => activeFilter === 'All' ? projects : projects.filter(project => project.category === activeFilter), [activeFilter])
   return (
     <section className="py-stack-xl bg-surface" id="projects">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-        <div className="flex items-end justify-between mb-stack-lg">
-          <div>
-            <h2 className="font-headline-md text-headline-md text-on-surface">Featured Projects</h2>
-            <p className="text-secondary font-body-md mt-2">Translating complex datasets into visual stories.</p>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-stack-md">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
-          ))}
-        </div>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-stack-lg"><div><p className="eyebrow">Selected work</p><h2 className="font-headline-md text-headline-md text-on-surface mt-3">Projects with a point of view.</h2><p className="text-secondary font-body-md mt-2 max-w-2xl">A focused sample of analysis, dashboards, and applications. Open a case study to see the problem, method, and business context.</p></div><div className="project-stats"><span><strong>04</strong> projects</span><span><strong>05</strong> tracks</span></div></div>
+        <div className="flex gap-2 overflow-x-auto pb-3 mb-6" role="group" aria-label="Filter projects by technology">{filters.map(filter => <button type="button" key={filter} onClick={() => setActiveFilter(filter)} aria-pressed={activeFilter === filter} className={`filter-chip ${activeFilter === filter ? 'is-active' : ''}`}>{filter}</button>)}</div>
+        {filteredProjects.length ? <div className="grid grid-cols-1 md:grid-cols-2 gap-stack-md">{filteredProjects.map((project, index) => <ProjectCard key={project.title} project={project} index={index} />)}</div> : <div className="empty-projects glass-panel"><p className="font-label-md text-label-md text-primary">SQL projects</p><p className="font-body-md text-body-md text-on-surface-variant mt-2">No SQL project is published in the current portfolio yet.</p></div>}
       </div>
     </section>
   )

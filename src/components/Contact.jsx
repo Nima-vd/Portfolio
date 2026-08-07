@@ -42,8 +42,9 @@ export default function Contact() {
   return (
     <section className="py-stack-xl bg-on-background text-on-primary" id="contact">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter text-center">
-        <h2 className="font-headline-md text-headline-md mb-stack-sm">Let's Build Something Insightful</h2>
-        <p className="text-secondary-fixed-dim font-body-lg text-body-lg mb-stack-lg">Ready to discuss data strategy or collaboration opportunities.</p>
+        <p className="eyebrow">Open to opportunities</p>
+        <h2 className="font-headline-md text-headline-md mt-3 mb-stack-sm">Let’s build something useful.</h2>
+        <p className="text-secondary-fixed-dim font-body-lg text-body-lg mb-stack-lg">For analytics, business intelligence, or data-focused product work, email is the fastest way to reach me.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-stack-md max-w-4xl mx-auto mb-stack-lg">
           {contactInfo.map((info, index) => (
             <ContactCard key={index} {...info} />
@@ -53,7 +54,7 @@ export default function Contact() {
           <a className="text-white hover:text-primary-container transition-colors flex items-center gap-2" href="https://www.linkedin.com/in/nima-norbu-sherpa-026819262/" target="_blank" rel="noopener noreferrer">
             <span className="material-symbols-outlined" data-icon="link">link</span> LinkedIn
           </a>
-          <a className="text-white hover:text-primary-container transition-colors flex items-center gap-2" href="#">
+          <a className="text-white hover:text-primary-container transition-colors flex items-center gap-2" href="https://github.com/Nima-vd" target="_blank" rel="noopener noreferrer">
             <span className="material-symbols-outlined" data-icon="link">link</span> GitHub
           </a>
         </div>

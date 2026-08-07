@@ -5,8 +5,9 @@ export default function Certificates() {
     <section id="certificates" className="py-stack-xl bg-surface-container-lowest">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
         <div className="mb-stack-lg">
-          <h2 className="font-headline-md text-headline-md text-on-surface">Certificate</h2>
-          <p className="text-secondary font-body-md mt-2">A verified achievement from my learning journey.</p>
+          <p className="eyebrow">Credentials</p>
+          <h2 className="font-headline-md text-headline-md text-on-surface mt-3">Certifications</h2>
+          <p className="text-secondary font-body-md mt-2">Verified learning evidence, with room for future certificates.</p>
         </div>
 
         <div className="bg-surface border border-outline-variant/30 rounded-2xl overflow-hidden shadow-md certificate-card">
@@ -41,6 +42,10 @@ export default function Certificates() {
               <span className="material-symbols-outlined text-5xl text-primary" data-icon="workspace_premium">workspace_premium</span>
               <p className="mt-3 font-body-md text-body-md">Certificate details and proof can be shared upon request.</p>
             </div>
+          </div>
+          <div className="px-6 pb-6 sm:px-8 sm:pb-8">
+            <p className="font-label-sm text-label-sm text-secondary">Certification archive</p>
+            <p className="font-body-md text-body-md text-on-surface-variant mt-2">Additional credentials will be added here as they are completed and verified.</p>
           </div>
         </div>
       </div>

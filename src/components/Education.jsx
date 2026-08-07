@@ -30,8 +30,9 @@ export default function Education() {
     <section id="education" className="py-stack-xl">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
 
-        <h2 className="font-headline-md text-headline-md text-on-surface mb-stack-xs">
-          Education
+        <p className="eyebrow">Learning journey</p>
+        <h2 className="font-headline-md text-headline-md text-on-surface mt-3 mb-stack-xs">
+          Education and foundations
         </h2>
         <p className="text-secondary font-body-md mt-2 mb-stack-lg">
           My academic journey and qualifications.
@@ -69,6 +70,9 @@ export default function Education() {
               </div>
             </motion.div>
           ))}
+        </div>
+        <div className="mt-stack-lg flex flex-wrap gap-2">
+          {['Data Analytics & Business Intelligence', 'Python Programming & Data Science', 'SQL Database Management', 'Power BI Dashboard Design & DAX Functions'].map(item => <span key={item} className="filter-chip">{item}</span>)}
         </div>
 
       </div>

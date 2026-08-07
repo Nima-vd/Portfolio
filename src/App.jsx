@@ -4,6 +4,7 @@ import { motion, useScroll } from 'framer-motion'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
+import ProfessionalProfile from './components/ProfessionalProfile'
 import Education from './components/Education'
 import Certificates from './components/Certificates'
 import Skills from './components/Skills'
@@ -39,6 +40,7 @@ function App() {
       <main className="pt-16">
         <Hero />
         <Reveal><About /></Reveal>
+        <Reveal delay={0.05}><ProfessionalProfile /></Reveal>
         <Reveal delay={0.05}><Education /></Reveal>
         <Reveal delay={0.05}><Certificates /></Reveal>
         <Reveal delay={0.05}><Skills /></Reveal>

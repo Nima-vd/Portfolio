@@ -5,6 +5,7 @@ import { ArrowUpRight, BarChart3, Menu, X } from 'lucide-react'
 const navItems = [
   { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
+  { id: 'profile', label: 'Profile' },
   { id: 'education', label: 'Education' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
@@ -59,7 +60,6 @@ export default function Header() {
               key={item.id}
               href={`#${item.id}`}
               onClick={(e) => {
-                e.preventDefault()
                 e.preventDefault()
                 navigateTo(item.id)
               }}

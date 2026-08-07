@@ -67,23 +67,19 @@ export default function Hero() {
           </motion.div>
 
           <motion.h1 variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease } } }} className="hero-copy font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack-sm">
-            Hi, I'm{' '}
-            <span className="text-shimmer" aria-label="Nima Norbu Sherpa">
-              {'Nima Norbu Sherpa'.split('').map((character, index) => (
-                <motion.span key={`${character}-${index}`} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45 + index * 0.035, duration: 0.35 }} className="inline-block">
-                  {character === ' ' ? '\u00a0' : character}
-                </motion.span>
-              ))}
-            </span>
+            Data Analyst <span className="text-shimmer">| Business Intelligence</span>
           </motion.h1>
+          <motion.p variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } } }} className="hero-copy font-headline-sm text-headline-sm text-on-surface mb-stack-sm">
+            Nima Norbu Sherpa
+          </motion.p>
+          <motion.p variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } } }} className="hero-copy font-label-md text-label-md text-primary mb-stack-sm">
+            Python · SQL · Power BI · Excel
+          </motion.p>
           <motion.p variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.6, ease } } }} className="hero-copy font-label-md text-label-md text-primary mb-stack-sm typing-title">
             {title}<span aria-hidden="true" className="typing-cursor">|</span>
           </motion.p>
-
           <motion.p variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } } }} className="hero-copy font-body-lg text-body-lg text-on-surface-variant mb-stack-md leading-relaxed">
-            Passionate about transforming raw data into actionable insights.
-            I bridge the gap between complex engineering principles and
-            sophisticated data analytics.
+            I turn structured analysis into clear business decisions through dashboards, data storytelling, and practical problem solving. I am seeking graduate and entry-level opportunities in data analytics, business intelligence, and business analysis.
           </motion.p>
 
           <div className="flex flex-col sm:flex-row gap-stack-sm opacity-100">
