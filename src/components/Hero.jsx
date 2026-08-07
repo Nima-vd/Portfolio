@@ -1,53 +1,83 @@
 import React, { useEffect, useState } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion'
 import { ArrowDown, ArrowRight, Download } from 'lucide-react'
 import localProfile from '../assets/profile.png'
-import { MagneticButton, ease } from './Motion'
+import { ease } from './Motion'
 
 export default function Hero() {
-  const [pointer, setPointer] = useState({ x: 50, y: 50 })
   const [title, setTitle] = useState('Data Analyst')
+  const [titleIndex, setTitleIndex] = useState(0)
+  const [isDeleting, setIsDeleting] = useState(false)
   const reduceMotion = useReducedMotion()
+  const pointerX = useSpring(useMotionValue(50), { stiffness: 110, damping: 24 })
+  const pointerY = useSpring(useMotionValue(40), { stiffness: 110, damping: 24 })
 
   useEffect(() => {
-    if (reduceMotion) return undefined
-    const titles = ['Data Analyst', 'Insight Builder', 'Dashboard Designer']
-    let index = 0
-    const interval = window.setInterval(() => {
-      index = (index + 1) % titles.length
-      setTitle(titles[index])
-    }, 2600)
-    return () => window.clearInterval(interval)
-  }, [reduceMotion])
+    const titles = ['Data Analyst', 'Business Analyst', 'BI Developer']
+    if (reduceMotion) {
+      setTitle(titles[0])
+      return undefined
+    }
+    const phrase = titles[titleIndex]
+    const finishedTyping = title === phrase && !isDeleting
+    const finishedDeleting = title.length === 0 && isDeleting
+    const timeout = window.setTimeout(() => {
+      if (finishedTyping) {
+        setIsDeleting(true)
+      } else if (finishedDeleting) {
+        setIsDeleting(false)
+        setTitleIndex((index) => (index + 1) % titles.length)
+      } else {
+        const nextLength = title.length + (isDeleting ? -1 : 1)
+        setTitle(phrase.slice(0, nextLength))
+      }
+    }, finishedTyping ? 1500 : finishedDeleting ? 350 : isDeleting ? 42 : 78)
+    return () => window.clearTimeout(timeout)
+  }, [isDeleting, reduceMotion, title, titleIndex])
+
+  const handlePointerMove = (event) => {
+    if (reduceMotion) return
+    pointerX.set(event.clientX)
+    pointerY.set(event.clientY)
+  }
 
   return (
     <section
       className="relative overflow-hidden min-h-[795px] flex items-center hero-grid"
       id="hero"
-      onMouseMove={(event) => {
-        if (reduceMotion) return
-        setPointer({ x: (event.clientX / window.innerWidth) * 100, y: (event.clientY / window.innerHeight) * 100 })
-      }}
+      onPointerMove={handlePointerMove}
     >
-      <div className="pointer-glow" style={{ left: `${pointer.x}%`, top: `${pointer.y}%` }} />
+      <div className="hero-blob hero-blob-one" aria-hidden="true" />
+      <div className="hero-blob hero-blob-two" aria-hidden="true" />
+      <motion.div className="pointer-glow" style={{ left: pointerX, top: pointerY }} aria-hidden="true" />
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter relative z-10 py-stack-xl">
         <motion.div className="max-w-3xl" initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.12 } } }}>
 
           {/* Profile Image + Badge */}
           <motion.div variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } } }} className="flex items-center gap-3 mb-stack-sm">
-            <img
+            <motion.img
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1, y: [0, -7, 0] }}
+              transition={{ opacity: { duration: 0.7 }, scale: { duration: 0.7 }, y: { duration: 5, repeat: Infinity, ease: 'easeInOut' } }}
               src={localProfile}
               alt="Nima Norbu Sherpa"
-              className="w-22 h-23 rounded-full object-cover border-2 border-primary shadow-lg"
+              className="h-[165px] w-[120px] rounded-full object-cover border-2 border-primary shadow-lg"
               onError={(e) => { e.currentTarget.style.display = 'none' }}
             />
           </motion.div>
 
           <motion.h1 variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease } } }} className="hero-copy font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack-sm">
-            Hi, I'm <span className="text-shimmer">Nima Norbu Sherpa</span>
+            Hi, I'm{' '}
+            <span className="text-shimmer" aria-label="Nima Norbu Sherpa">
+              {'Nima Norbu Sherpa'.split('').map((character, index) => (
+                <motion.span key={`${character}-${index}`} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45 + index * 0.035, duration: 0.35 }} className="inline-block">
+                  {character === ' ' ? '\u00a0' : character}
+                </motion.span>
+              ))}
+            </span>
           </motion.h1>
           <motion.p variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.6, ease } } }} className="hero-copy font-label-md text-label-md text-primary mb-stack-sm typing-title">
-            {title}<span aria-hidden="true">_</span>
+            {title}<span aria-hidden="true" className="typing-cursor">|</span>
           </motion.p>
 
           <motion.p variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } } }} className="hero-copy font-body-lg text-body-lg text-on-surface-variant mb-stack-md leading-relaxed">
@@ -57,19 +87,21 @@ export default function Hero() {
           </motion.p>
 
           <div className="flex flex-col sm:flex-row gap-stack-sm opacity-100">
-            <MagneticButton
+            <a
               href="#about"
+              style={{ color: '#ffffff', opacity: 1 }}
               className="relative z-10 inline-flex items-center justify-center gap-2 rounded-lg bg-[#2d9cdb] px-8 py-4 text-center font-label-md text-label-md text-white shadow-lg shadow-[#2d9cdb]/20 transition-all hover:bg-[#51e0bb] hover:text-[#061218]"
             >
               Explore My Journey <ArrowRight size={17} />
-            </MagneticButton>
-            <MagneticButton
+            </a>
+            <a
               href="/resume.pdf"
               download="Nima-Norbu-Sherpa-Resume.pdf"
+              style={{ color: '#ffffff', opacity: 1 }}
               className="relative z-10 inline-flex items-center justify-center gap-2 rounded-lg border border-[#6f9eaa] bg-[#10232c] px-8 py-4 text-center font-label-md text-label-md text-white shadow-lg shadow-black/20 transition-all hover:border-[#51e0bb] hover:bg-[#173944]"
             >
               Download My Resume <Download size={16} />
-            </MagneticButton>
+            </a>
           </div>
 
         </motion.div>

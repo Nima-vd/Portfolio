@@ -1,7 +1,10 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useRef } from 'react'
+import { motion, useScroll, useSpring } from 'framer-motion'
 
 export default function Education() {
+  const timelineRef = useRef(null)
+  const { scrollYProgress } = useScroll({ target: timelineRef, offset: ['start 75%', 'end 45%'] })
+  const lineScale = useSpring(scrollYProgress, { stiffness: 120, damping: 24 })
   const education = [
     {
       year: '2023 - 2026',
@@ -34,7 +37,8 @@ export default function Education() {
           My academic journey and qualifications.
         </p>
 
-        <div className="space-y-6 education-timeline">
+        <div ref={timelineRef} className="space-y-6 education-timeline">
+          <motion.div className="education-timeline-progress" style={{ scaleY: lineScale }} aria-hidden="true" />
           {education.map((item, index) => (
             <motion.div
               key={index}

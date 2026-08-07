@@ -3,12 +3,23 @@ import { motion, useMotionValue, useSpring, useReducedMotion } from 'framer-moti
 
 export const ease = [0.22, 1, 0.36, 1]
 
+export const revealVariants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } },
+}
+
+export const staggerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+}
+
 export function Reveal({ children, delay = 0, className = '' }) {
   const reduceMotion = useReducedMotion()
   return (
     <motion.div
       className={className}
-      initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+      initial={reduceMotion ? false : 'hidden'}
+      variants={revealVariants}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.7, delay, ease }}

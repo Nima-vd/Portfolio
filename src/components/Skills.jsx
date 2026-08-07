@@ -2,17 +2,13 @@ import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
 const SkillCard = ({ icon, name, percentage }) => {
-  const [isVisible, setIsVisible] = useState(false)
   const [animatedWidth, setAnimatedWidth] = useState('0%')
   const ref = useRef(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
-        setIsVisible(true)
-        setTimeout(() => {
-          setAnimatedWidth(`${percentage}%`)
-        }, 100)
+        setAnimatedWidth(`${percentage}%`)
         observer.unobserve(entry.target)
       }
     }, { threshold: 0.1 })

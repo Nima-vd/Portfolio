@@ -1,14 +1,26 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 import { MagneticButton } from './Motion'
 
 const ProjectCard = ({ title, description, tag, imageSrc, link }) => {
+  const spotlightX = useSpring(useMotionValue('50%'), { stiffness: 180, damping: 24 })
+  const spotlightY = useSpring(useMotionValue('50%'), { stiffness: 180, damping: 24 })
+
+  const handlePointerMove = (event) => {
+    const bounds = event.currentTarget.getBoundingClientRect()
+    spotlightX.set(`${event.clientX - bounds.left}px`)
+    spotlightY.set(`${event.clientY - bounds.top}px`)
+  }
+
   return (
-    <motion.article whileHover={{ y: -8, rotateX: 2, rotateY: -2 }} transition={{ duration: 0.35 }} className="group bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden project-card" style={{ perspective: 900 }}>
+    <motion.article onPointerMove={handlePointerMove} whileHover={{ y: -8, rotateX: 2, rotateY: -2 }} transition={{ duration: 0.35 }} className="group bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden project-card" style={{ perspective: 900 }}>
+      <motion.div className="project-spotlight" style={{ left: spotlightX, top: spotlightY }} aria-hidden="true" />
       <div className="aspect-video bg-surface-container-high overflow-hidden relative">
         <img 
           alt={title} 
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
           src={imageSrc}
         />

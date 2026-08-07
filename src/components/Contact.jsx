@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Check, LoaderCircle, Send } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const ContactCard = ({ icon, title, content }) => {
   return (
@@ -21,6 +23,7 @@ const ContactCard = ({ icon, title, content }) => {
 }
 
 export default function Contact() {
+  const [status, setStatus] = useState('idle')
   const contactInfo = [
     {
       icon: 'location_on',
@@ -49,6 +52,55 @@ export default function Contact() {
             <ContactCard key={index} {...info} />
           ))}
         </div>
+        <motion.form
+          onSubmit={async (event) => {
+            event.preventDefault()
+            setStatus('sending')
+            const formData = new FormData(event.currentTarget)
+            try {
+              const apiBase = import.meta.env.VITE_API_URL
+              const endpoint = apiBase ? `${apiBase.replace(/\/$/, '')}/contact` : '/api/contact'
+              const response = await fetch(endpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(Object.fromEntries(formData.entries())),
+              })
+              if (!response.ok) throw new Error('Unable to submit message')
+              setStatus('success')
+              event.currentTarget.reset()
+            } catch {
+              setStatus('error')
+            }
+          }}
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="contact-form max-w-3xl mx-auto grid gap-4 text-left"
+        >
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <label className="grid gap-2 font-label-sm text-label-sm text-secondary-fixed-dim">
+              Name
+              <input required name="name" type="text" placeholder="Your name" className="contact-input" />
+            </label>
+            <label className="grid gap-2 font-label-sm text-label-sm text-secondary-fixed-dim">
+              Email
+              <input required name="email" type="email" placeholder="you@example.com" className="contact-input" />
+            </label>
+          </div>
+          <label className="grid gap-2 font-label-sm text-label-sm text-secondary-fixed-dim">
+            Message
+            <textarea required name="message" rows="4" placeholder="Tell me about the opportunity..." className="contact-input resize-y" />
+          </label>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <button type="submit" disabled={status === 'sending' || status === 'success'} className="inline-flex items-center gap-2 rounded-lg bg-primary-container px-5 py-3 font-label-md text-label-md text-on-primary-container transition-all hover:bg-primary hover:text-on-primary disabled:cursor-default disabled:opacity-80">
+              {status === 'sending' ? <LoaderCircle size={16} className="animate-spin" /> : status === 'success' ? <Check size={16} /> : <Send size={16} />}
+              {status === 'sending' ? 'Sending...' : status === 'success' ? 'Message sent' : status === 'error' ? 'Try again' : 'Send message'}
+            </button>
+            <p aria-live="polite" className="font-label-sm text-label-sm text-secondary-fixed-dim">
+              {status === 'success' ? 'Thanks. I will get back to you soon.' : status === 'error' ? 'The message could not be sent. Please email me directly.' : 'I usually reply within two working days.'}
+            </p>
+          </div>
+        </motion.form>
         <div className="flex justify-center gap-6 flex-wrap">
           <a className="text-white hover:text-primary-container transition-colors flex items-center gap-2" href="https://www.linkedin.com/in/nima-norbu-sherpa-026819262/" target="_blank" rel="noopener noreferrer">
             <span className="material-symbols-outlined" data-icon="link">link</span> LinkedIn
