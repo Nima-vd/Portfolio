@@ -1,24 +1,28 @@
 import React from 'react'
+import { motion } from 'framer-motion'
+import { ArrowUpRight } from 'lucide-react'
+import { MagneticButton } from './Motion'
 
 const ProjectCard = ({ title, description, tag, imageSrc, link }) => {
   return (
-    <div className="group bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300">
+    <motion.article whileHover={{ y: -8, rotateX: 2, rotateY: -2 }} transition={{ duration: 0.35 }} className="group bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden project-card" style={{ perspective: 900 }}>
       <div className="aspect-video bg-surface-container-high overflow-hidden relative">
         <img 
           alt={title} 
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
           src={imageSrc}
         />
-        <div className="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-label-sm">{tag}</div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#09171d]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <motion.div initial={{ opacity: 0, y: -8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="absolute top-4 right-4 bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-label-sm">{tag}</motion.div>
       </div>
       <div className="p-6">
         <h3 className="font-headline-sm text-headline-sm text-on-surface mb-2">{title}</h3>
         <p className="font-body-md text-body-md text-on-surface-variant mb-4">{description}</p>
-        <a className="text-primary font-label-md text-label-md flex items-center gap-2 group-hover:gap-3 transition-all" href={link}>
-          GitHub Link <span className="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
-        </a>
+        <MagneticButton className="text-primary font-label-md text-label-md inline-flex items-center gap-2 group-hover:gap-3 transition-all" href={link} target="_blank" rel="noreferrer">
+          GitHub Link <ArrowUpRight size={15} />
+        </MagneticButton>
       </div>
-    </div>
+    </motion.article>
   )
 }
 

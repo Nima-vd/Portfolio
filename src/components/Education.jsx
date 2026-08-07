@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 export default function Education() {
   const education = [
@@ -33,10 +34,14 @@ export default function Education() {
           My academic journey and qualifications.
         </p>
 
-        <div className="space-y-6">
+        <div className="space-y-6 education-timeline">
           {education.map((item, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, x: index % 2 ? 24 : -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.65, delay: index * 0.08 }}
               className="bg-white shadow-md rounded-xl p-6 border border-gray-200"
             >
               <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2">
@@ -58,7 +63,7 @@ export default function Education() {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

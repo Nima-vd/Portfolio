@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import Lenis from 'lenis'
+import { motion, useScroll } from 'framer-motion'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -10,41 +12,38 @@ import Passions from './components/Passions'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import FAB from './components/FAB'
+import { Reveal } from './components/Motion'
 
 function App() {
   useEffect(() => {
-    // Smooth scroll for anchor links inside the page content only
-    const main = document.querySelector('main') || document
-    const anchors = main.querySelectorAll('a[href^="#"]')
-
-    const handleAnchorClick = (e) => {
-      const href = e.currentTarget.getAttribute('href')
-      if (href?.startsWith('#')) {
-        e.preventDefault()
-        const target = document.querySelector(href)
-        if (target) {
-          window.scrollTo({ top: target.offsetTop - 64, behavior: 'smooth' })
-        }
-      }
+    const lenis = new Lenis({ duration: 1.1, smoothWheel: true, syncTouch: true })
+    let frameId
+    const raf = (time) => {
+      lenis.raf(time)
+      frameId = requestAnimationFrame(raf)
     }
-
-    anchors.forEach(anchor => anchor.addEventListener('click', handleAnchorClick))
-
-    return () => anchors.forEach(anchor => anchor.removeEventListener('click', handleAnchorClick))
+    frameId = requestAnimationFrame(raf)
+    return () => {
+      cancelAnimationFrame(frameId)
+      lenis.destroy()
+    }
   }, [])
 
+  const { scrollYProgress } = useScroll()
+
   return (
-    <div className="scroll-smooth bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+    <div className="min-h-screen bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+      <motion.div className="scroll-progress" style={{ scaleX: scrollYProgress }} />
       <Header />
       <main className="pt-16">
         <Hero />
-        <About />
-        <Education />
-        <Certificates />
-        <Skills />
-        <Projects />
-        <Passions />
-        <Contact />
+        <Reveal><About /></Reveal>
+        <Reveal delay={0.05}><Education /></Reveal>
+        <Reveal delay={0.05}><Certificates /></Reveal>
+        <Reveal delay={0.05}><Skills /></Reveal>
+        <Reveal delay={0.05}><Projects /></Reveal>
+        <Reveal delay={0.05}><Passions /></Reveal>
+        <Reveal delay={0.05}><Contact /></Reveal>
       </main>
       <Footer />
       <FAB />

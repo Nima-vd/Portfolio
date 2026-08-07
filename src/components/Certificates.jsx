@@ -9,7 +9,7 @@ export default function Certificates() {
           <p className="text-secondary font-body-md mt-2">A verified achievement from my learning journey.</p>
         </div>
 
-        <div className="bg-surface border border-outline-variant/30 rounded-2xl overflow-hidden shadow-md">
+        <div className="bg-surface border border-outline-variant/30 rounded-2xl overflow-hidden shadow-md certificate-card">
           <div className="p-6 sm:p-8">
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
               <div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 
 const SkillCard = ({ icon, name, percentage }) => {
   const [isVisible, setIsVisible] = useState(false)
@@ -24,21 +25,23 @@ const SkillCard = ({ icon, name, percentage }) => {
   }, [percentage])
 
   return (
-    <div ref={ref} className="p-6 bg-surface border border-outline-variant/20 rounded-xl bento-item">
+    <motion.div ref={ref} whileHover={{ y: -6 }} transition={{ duration: 0.25 }} className="p-6 bg-surface border border-outline-variant/20 rounded-xl bento-item skill-card">
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center gap-3">
-          <span className="material-symbols-outlined text-primary" data-icon={icon}>{icon}</span>
+          <span className="material-symbols-outlined text-primary skill-icon" data-icon={icon}>{icon}</span>
           <span className="font-headline-sm text-headline-sm">{name}</span>
         </div>
         <span className="font-label-md text-label-md text-primary">{percentage}%</span>
       </div>
       <div className="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
-        <div 
+        <motion.div 
           className="progress-bar bg-primary-container h-full"
-          style={{ width: animatedWidth }}
-        ></div>
+          initial={{ width: '0%' }}
+          animate={{ width: animatedWidth }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        />
       </div>
-    </div>
+    </motion.div>
   )
 }
 
