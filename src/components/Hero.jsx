@@ -43,20 +43,20 @@ export default function Hero() {
             />
           </motion.div>
 
-          <motion.h1 variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease } } }} className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack-sm">
+          <motion.h1 variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease } } }} className="hero-copy font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack-sm">
             Hi, I'm <span className="text-shimmer">Nima Norbu Sherpa</span>
           </motion.h1>
-          <motion.p variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.6, ease } } }} className="font-label-md text-label-md text-primary mb-stack-sm typing-title">
+          <motion.p variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.6, ease } } }} className="hero-copy font-label-md text-label-md text-primary mb-stack-sm typing-title">
             {title}<span aria-hidden="true">_</span>
           </motion.p>
 
-          <motion.p variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } } }} className="font-body-lg text-body-lg text-on-surface-variant mb-stack-md leading-relaxed">
+          <motion.p variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } } }} className="hero-copy font-body-lg text-body-lg text-on-surface-variant mb-stack-md leading-relaxed">
             Passionate about transforming raw data into actionable insights.
             I bridge the gap between complex engineering principles and
             sophisticated data analytics.
           </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-stack-sm opacity-100">
+          <div className="hero-copy flex flex-col sm:flex-row gap-stack-sm opacity-100">
             <MagneticButton
               className="relative z-10 bg-[#2d9cdb] text-white px-8 py-4 rounded-lg font-label-md text-label-md text-center shadow-lg shadow-[#2d9cdb]/20 hover:bg-[#51e0bb] hover:text-[#061218] transition-all flex items-center justify-center gap-2"
               href="#about"

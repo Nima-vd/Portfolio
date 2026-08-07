@@ -24,6 +24,9 @@ body {
 .scroll-progress { position: fixed; inset: 0 0 auto; height: 2px; transform-origin: 0%; background: linear-gradient(90deg, #2d9cdb, #51e0bb); z-index: 100; }
 .hero-grid { background-image: linear-gradient(rgba(116, 167, 180, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(116, 167, 180, 0.06) 1px, transparent 1px); background-size: 56px 56px; mask-image: linear-gradient(to bottom, black, transparent 86%); }
 .pointer-glow { position: absolute; width: 24rem; height: 24rem; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(45, 156, 219, 0.13), transparent 68%); pointer-events: none; transition: left 0.35s ease-out, top 0.35s ease-out; }
+.hero-copy { opacity: 1 !important; color: #edf5f7 !important; }
+.typing-title { color: #7af0d0 !important; }
+.hero-copy p { color: #c4d4d8 !important; }
 .text-shimmer { background: linear-gradient(110deg, #2d9cdb 20%, #7af0d0 45%, #2d9cdb 70%); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 5s linear infinite; }
 .typing-title span { display: inline-block; margin-left: 2px; animation: blink 1s steps(2, start) infinite; }
 @keyframes shimmer { to { background-position: 200% center; } }
