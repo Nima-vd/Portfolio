@@ -13,7 +13,6 @@ const navItems = [
 
 export default function Header() {
   const [activeId, setActiveId] = useState('hero')
-  const [hidden, setHidden] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const { scrollY } = useScroll()
@@ -31,8 +30,6 @@ export default function Header() {
   }, [])
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    const previous = scrollY.getPrevious()
-    setHidden(latest > 120 && latest > previous)
     setScrolled(latest > 24)
   })
 
@@ -45,7 +42,7 @@ export default function Header() {
 
   return (
     <motion.header
-      animate={{ y: hidden ? '-110%' : 0 }}
+      animate={{ y: 0 }}
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 w-full z-50 glass-nav border-b border-outline-variant/30 transition-[padding] duration-300 ${scrolled ? 'py-1' : ''}`}
     >
