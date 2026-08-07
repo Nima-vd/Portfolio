@@ -56,6 +56,22 @@ export default function Hero() {
             sophisticated data analytics.
           </motion.p>
 
+          <div className="flex flex-col sm:flex-row gap-stack-sm opacity-100">
+            <MagneticButton
+              href="#about"
+              className="relative z-10 inline-flex items-center justify-center gap-2 rounded-lg bg-[#2d9cdb] px-8 py-4 text-center font-label-md text-label-md text-white shadow-lg shadow-[#2d9cdb]/20 transition-all hover:bg-[#51e0bb] hover:text-[#061218]"
+            >
+              Explore My Journey <ArrowRight size={17} />
+            </MagneticButton>
+            <MagneticButton
+              href="/resume.pdf"
+              download="Nima-Norbu-Sherpa-Resume.pdf"
+              className="relative z-10 inline-flex items-center justify-center gap-2 rounded-lg border border-[#6f9eaa] bg-[#10232c] px-8 py-4 text-center font-label-md text-label-md text-white shadow-lg shadow-black/20 transition-all hover:border-[#51e0bb] hover:bg-[#173944]"
+            >
+              Download My Resume <Download size={16} />
+            </MagneticButton>
+          </div>
+
         </motion.div>
       </div>
       <motion.div animate={{ y: [0, 9, 0] }} transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }} className="absolute bottom-10 left-1/2 -translate-x-1/2 text-secondary flex flex-col items-center gap-2">
