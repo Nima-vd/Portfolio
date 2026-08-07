@@ -1,5 +1,4 @@
 import React from 'react'
-import { motion } from 'framer-motion'
 
 export default function About() {
   return (
@@ -16,14 +15,6 @@ export default function About() {
               <p className="font-body-md text-body-md text-on-surface-variant italic">
                 "To transform complex datasets into clear, actionable insights through structured analysis and transparent storytelling."
               </p>
-            </div>
-            <div className="grid grid-cols-3 gap-4 mt-6">
-              {[['04+', 'Years learning'], ['12+', 'Dashboards'], ['07', 'Core tools']].map(([value, label], index) => (
-                <motion.div key={label} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }}>
-                  <p className="text-2xl font-semibold text-primary">{value}</p>
-                  <p className="font-label-sm text-label-sm text-secondary mt-1">{label}</p>
-                </motion.div>
-              ))}
             </div>
           </div>
           <div className="md:col-span-5 aspect-square relative rounded-2xl overflow-hidden shadow-sm">

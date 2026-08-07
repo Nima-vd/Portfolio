@@ -58,14 +58,14 @@ export default function Hero() {
 
           <motion.div variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } } }} className="flex flex-col sm:flex-row gap-stack-sm">
             <MagneticButton
-              className="bg-primary text-on-primary px-8 py-4 rounded-lg font-label-md text-label-md text-center hover:opacity-90 transition-all flex items-center justify-center gap-2"
+              className="relative z-10 bg-[#2d9cdb] text-white px-8 py-4 rounded-lg font-label-md text-label-md text-center shadow-lg shadow-[#2d9cdb]/20 hover:bg-[#51e0bb] hover:text-[#061218] transition-all flex items-center justify-center gap-2"
               href="#about"
             >
               Explore My Journey <ArrowRight size={17} />
             </MagneticButton>
 
             <MagneticButton
-              className="border border-outline-variant bg-surface text-on-surface px-8 py-4 rounded-lg font-label-md text-label-md text-center hover:bg-surface-container-low transition-all"
+              className="relative z-10 border border-[#6f9eaa] bg-[#10232c] text-white px-8 py-4 rounded-lg font-label-md text-label-md text-center shadow-lg shadow-black/20 hover:border-[#51e0bb] hover:bg-[#173944] transition-all flex items-center justify-center gap-2"
               href="#"
             >
               Download Resume <Download size={16} />
