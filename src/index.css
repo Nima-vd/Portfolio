@@ -88,7 +88,3 @@ body {
 .education-timeline::before { content: ''; position: absolute; left: 16px; top: 1rem; bottom: 1rem; width: 1px; background: linear-gradient(#2d9cdb, transparent); opacity: 0.6; }
 .education-timeline-progress { position: absolute; left: 16px; top: 1rem; bottom: 1rem; width: 1px; background: #7af0d0; transform-origin: top; z-index: 1; }
 .education-timeline > div { position: relative; margin-left: 2rem; }
-.contact-form { position: relative; }
-.contact-input { width: 100%; border: 1px solid rgba(116, 167, 180, 0.28); border-radius: 0.5rem; background: rgba(255, 255, 255, 0.05); color: #edf5f7; padding: 0.8rem 0.9rem; outline: none; transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease; }
-.contact-input::placeholder { color: rgba(196, 212, 216, 0.55); }
-.contact-input:focus { border-color: #51e0bb; background: rgba(255, 255, 255, 0.08); box-shadow: 0 0 0 3px rgba(81, 224, 208, 0.12); }
