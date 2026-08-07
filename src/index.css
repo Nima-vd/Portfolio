@@ -5,7 +5,15 @@
 @tailwind components;
 @tailwind utilities;
 
-html { background: #09171d; }
+html {
+  background: #09171d;
+  scroll-padding-top: 88px;
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 88px;
+}
 
 body {
   min-height: max(884px, 100dvh);
