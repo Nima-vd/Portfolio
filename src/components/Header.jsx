@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { ArrowUpRight, BarChart3, Menu, X } from 'lucide-react'
 
@@ -15,6 +15,7 @@ export default function Header() {
   const [activeId, setActiveId] = useState('hero')
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const headerRef = useRef(null)
   const { scrollY } = useScroll()
 
   useEffect(() => {
@@ -35,21 +36,30 @@ export default function Header() {
 
   const navigateTo = (id) => {
     const target = document.getElementById(id)
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    setActiveId(id)
     setMenuOpen(false)
+    setActiveId(id)
+
+    if (!target) return
+
+    window.requestAnimationFrame(() => {
+      const headerHeight = headerRef.current?.offsetHeight ?? 0
+      const targetTop = target.getBoundingClientRect().top + window.scrollY - headerHeight
+      window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' })
+      window.history.replaceState(null, '', `#${id}`)
+    })
   }
 
   return (
     <motion.header
+      ref={headerRef}
       animate={{ y: 0 }}
       transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 w-full z-50 glass-nav border-b border-outline-variant/30 transition-[padding] duration-300 ${scrolled ? 'py-1' : ''}`}
     >
-      <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex items-center justify-between h-16">
-        <div className="flex items-center gap-2">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex items-center gap-3 h-16">
+        <div className="min-w-0 flex flex-1 items-center gap-2">
           <BarChart3 size={18} className="text-primary" />
-          <span className="font-display-lg text-headline-sm tracking-tight text-on-surface">NIMA NORBU SHERPA</span>
+          <span className="truncate font-display-lg text-sm md:text-headline-sm tracking-tight text-on-surface">NIMA NORBU SHERPA</span>
         </div>
         <nav className="hidden md:flex gap-8" aria-label="Primary navigation">
           {navItems.map((item) => (
@@ -72,7 +82,7 @@ export default function Header() {
           ))}
         </nav>
         <button
-          className="group bg-primary-container text-on-primary-container px-4 py-2 rounded-lg font-label-md text-label-md transition-all active:scale-95 hover:bg-primary hover:text-on-primary"
+          className="group hidden md:inline-flex bg-primary-container text-on-primary-container px-4 py-2 rounded-lg font-label-md text-label-md transition-all active:scale-95 hover:bg-primary hover:text-on-primary"
           onClick={() => navigateTo('contact')}
         >
           Contact <ArrowUpRight size={15} className="inline ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -81,8 +91,9 @@ export default function Header() {
           type="button"
           aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
           onClick={() => setMenuOpen(open => !open)}
-          className="md:hidden text-on-surface p-2 rounded-lg hover:bg-white/10 transition-colors"
+          className="md:hidden shrink-0 text-on-surface p-2 rounded-lg hover:bg-white/10 transition-colors"
         >
           {menuOpen ? <X size={21} /> : <Menu size={21} />}
         </button>
@@ -96,6 +107,7 @@ export default function Header() {
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             className="md:hidden border-t border-white/10 overflow-hidden"
             aria-label="Mobile navigation"
+            id="mobile-navigation"
           >
             <div className="max-w-container-max mx-auto px-margin-mobile py-3 grid gap-1">
               {navItems.map(item => (
