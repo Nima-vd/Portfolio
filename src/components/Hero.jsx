@@ -4,6 +4,8 @@ import { ArrowDown, ArrowRight, Download } from 'lucide-react'
 import localProfile from '../assets/profile.png'
 import { ease } from './Motion'
 
+const titles = ['Data Analyst', 'Business Analyst', 'BI Developer']
+
 export default function Hero() {
   const [title, setTitle] = useState('Data Analyst')
   const [titleIndex, setTitleIndex] = useState(0)
@@ -13,11 +15,6 @@ export default function Hero() {
   const pointerY = useSpring(useMotionValue(40), { stiffness: 110, damping: 24 })
 
   useEffect(() => {
-    const titles = ['Data Analyst', 'Business Analyst', 'BI Developer']
-    if (reduceMotion) {
-      setTitle(titles[0])
-      return undefined
-    }
     const phrase = titles[titleIndex]
     const finishedTyping = title === phrase && !isDeleting
     const finishedDeleting = title.length === 0 && isDeleting
