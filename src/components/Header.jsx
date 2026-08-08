@@ -7,6 +7,7 @@ const navItems = [
   { id: 'about', label: 'About' },
   { id: 'profile', label: 'Profile' },
   { id: 'education', label: 'Education' },
+  { id: 'certificates', label: 'Certificates' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
 ]
@@ -61,7 +62,7 @@ export default function Header() {
           <BarChart3 size={18} className="text-primary" />
           <span className="truncate font-display-lg text-sm md:text-headline-sm tracking-tight text-on-surface">NIMA NORBU SHERPA</span>
         </div>
-        <nav className="hidden md:flex gap-8" aria-label="Primary navigation">
+        <nav className="hidden lg:flex gap-5 xl:gap-8" aria-label="Primary navigation">
           {navItems.map((item) => (
             <a
               key={item.id}
@@ -82,7 +83,7 @@ export default function Header() {
           ))}
         </nav>
         <button
-          className="group hidden md:inline-flex bg-primary-container text-on-primary-container px-4 py-2 rounded-lg font-label-md text-label-md transition-all active:scale-95 hover:bg-primary hover:text-on-primary"
+          className="group hidden lg:inline-flex bg-primary-container text-on-primary-container px-4 py-2 rounded-lg font-label-md text-label-md transition-all active:scale-95 hover:bg-primary hover:text-on-primary"
           onClick={() => navigateTo('contact')}
         >
           Contact <ArrowUpRight size={15} className="inline ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -93,7 +94,7 @@ export default function Header() {
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setMenuOpen(open => !open)}
-          className="md:hidden shrink-0 text-on-surface p-2 rounded-lg hover:bg-white/10 transition-colors"
+          className="lg:hidden shrink-0 text-on-surface p-2 rounded-lg hover:bg-white/10 transition-colors"
         >
           {menuOpen ? <X size={21} /> : <Menu size={21} />}
         </button>
@@ -105,7 +106,7 @@ export default function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden border-t border-white/10 overflow-hidden"
+            className="lg:hidden border-t border-white/10 overflow-hidden"
             aria-label="Mobile navigation"
             id="mobile-navigation"
           >

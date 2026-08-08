@@ -11,10 +11,10 @@ export default function Certificates() {
         </div>
 
         <div className="bg-surface border border-outline-variant/30 rounded-2xl overflow-hidden shadow-md certificate-card">
-          <div className="p-6 sm:p-8">
+          <div className="p-4 sm:p-8">
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
               <div>
-                <h3 className="font-headline-sm text-headline-sm text-on-surface">
+                <h3 className="font-headline-sm text-headline-sm text-on-surface break-words">
                   Deloitte Australia Data Analytics Job Simulation on Forage
                 </h3>
                 <p className="text-primary font-label-md text-label-md mt-2">June 21, 2026</p>
@@ -38,12 +38,12 @@ export default function Certificates() {
           </div>
 
           <div className="bg-surface-container-high p-3 sm:p-4">
-            <div className="rounded-xl border border-outline-variant/30 bg-white p-6 text-center text-on-surface-variant">
+            <div className="rounded-xl border border-outline-variant/30 bg-white p-4 sm:p-6 text-center text-on-surface-variant">
               <span className="material-symbols-outlined text-5xl text-primary" data-icon="workspace_premium">workspace_premium</span>
               <p className="mt-3 font-body-md text-body-md">Certificate details and proof can be shared upon request.</p>
             </div>
           </div>
-          <div className="px-6 pb-6 sm:px-8 sm:pb-8">
+          <div className="px-4 pb-6 sm:px-8 sm:pb-8">
             <p className="font-label-sm text-label-sm text-secondary">Certification archive</p>
             <p className="font-body-md text-body-md text-on-surface-variant mt-2">Additional credentials will be added here as they are completed and verified.</p>
           </div>
