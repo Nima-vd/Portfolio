@@ -68,7 +68,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.h1 variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease } } }} className="hero-copy font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack-sm">
-            Data Analyst
+            Data Analyst | Data-Driven Insights
           </motion.h1>
           <motion.p variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } } }} className="hero-copy font-headline-sm text-headline-sm text-on-surface mb-stack-sm">
             Nima Norbu Sherpa

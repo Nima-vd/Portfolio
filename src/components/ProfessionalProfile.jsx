@@ -47,9 +47,12 @@ export default function ProfessionalProfile() {
         <div className="profile-intro grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-stack-lg items-end">
           <div>
             <p className="eyebrow">Professional profile</p>
-            <h2 className="font-headline-md text-headline-md text-on-surface mt-3">Analytical thinking, presented clearly.</h2>
+            <h2 className="font-headline-md text-headline-md text-on-surface mt-3">Aspiring Data Analyst, driven by data and curiosity.</h2>
             <p className="font-body-lg text-body-lg text-on-surface-variant mt-5 max-w-2xl">
-              Computer Science graduate focused on data analysis and business intelligence. I use structured analysis, thoughtful visualization, and reliable technical foundations to make complex information easier to act on.
+              Computer Science graduate with a strong interest in Data Analytics. I use Python, SQL, Power BI, Excel, and Tableau to analyse data, create meaningful visualizations, identify trends, and transform complex information into clear, actionable insights.
+            </p>
+            <p className="font-body-lg text-body-lg text-on-surface-variant mt-4 max-w-2xl">
+              I’m passionate about using data to understand problems, support informed decision-making, and continuously develop my analytical and technical skills.
             </p>
           </div>
           <div className="profile-learning glass-panel">
@@ -107,7 +110,7 @@ export default function ProfessionalProfile() {
 
         <div className="career-objective mt-stack-xl">
           <p className="eyebrow">What I’m looking for</p>
-          <p className="font-headline-sm text-headline-sm text-on-surface mt-3 max-w-3xl">Graduate and entry-level opportunities in Data Analytics, Business Intelligence, or Business Analysis where I can solve real business problems with data while continuing to grow professionally.</p>
+          <p className="font-headline-sm text-headline-sm text-on-surface mt-3 max-w-3xl">Graduate and entry-level opportunities in Data Analytics where I can apply my analytical and technical skills to solve real business problems, uncover meaningful insights, and continue growing as a Data Analyst.</p>
         </div>
 
         <div className="resume-preview mt-stack-xl">
