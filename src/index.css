@@ -30,7 +30,7 @@ body {
 ::selection { background: #2d9cdb; color: #061218; }
 
 .scroll-progress { position: fixed; inset: 0 0 auto; height: 2px; transform-origin: 0%; background: linear-gradient(90deg, #2d9cdb, #51e0bb); z-index: 100; }
-.hero-grid { background-image: linear-gradient(rgba(116, 167, 180, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(116, 167, 180, 0.06) 1px, transparent 1px); background-size: 56px 56px; mask-image: linear-gradient(to bottom, black, transparent 86%); }
+.hero-grid { background-image: linear-gradient(rgba(116, 167, 180, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(116, 167, 180, 0.06) 1px, transparent 1px); background-size: 56px 56px; }
 .pointer-glow { position: absolute; width: 24rem; height: 24rem; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(45, 156, 219, 0.13), transparent 68%); pointer-events: none; }
 .hero-blob { position: absolute; border-radius: 999px; filter: blur(70px); opacity: 0.28; pointer-events: none; animation: blob-drift 12s ease-in-out infinite alternate; }
 .hero-blob-one { width: 18rem; height: 18rem; top: 8%; right: 8%; background: #2455b8; }
@@ -41,8 +41,8 @@ body {
   visibility: visible !important;
   display: inline-flex !important;
 }
-.hero-action-primary { color: #062a24 !important; background-color: #7af0d0 !important; }
-.hero-action-secondary { color: #111827 !important; background-color: #ffffff !important; }
+.hero-action.hero-action-primary { color: #062a24 !important; background-color: #7af0d0 !important; }
+.hero-action.hero-action-secondary { color: #111827 !important; background-color: #ffffff !important; }
 .hero-action-primary svg, .hero-action-secondary svg { color: currentColor !important; opacity: 1 !important; }
 .typing-title { color: #7af0d0 !important; }
 .hero-copy p { color: #c4d4d8 !important; }
