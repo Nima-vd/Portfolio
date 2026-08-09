@@ -62,7 +62,7 @@ export default function Hero() {
               transition={{ opacity: { duration: 0.7 }, scale: { duration: 0.7 }, y: { duration: 5, repeat: Infinity, ease: 'easeInOut' } }}
               src={localProfile}
               alt="Nima Norbu Sherpa"
-              className="h-[180px] w-[120px] rounded-full object-cover border-2 border-primary shadow-lg"
+              className="h-[190px] w-[150px] rounded-full object-cover border-2 border-primary shadow-lg"
               onError={(e) => { e.currentTarget.style.display = 'none' }}
             />
           </motion.div>
