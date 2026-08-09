@@ -4,7 +4,11 @@ import { ArrowDown, ArrowRight, Download } from 'lucide-react'
 import localProfile from '../assets/profile.png'
 import { ease } from './Motion'
 
-const titles = ['Data Analyst', 'Business Analyst', 'BI Developer']
+const titles = [
+  'Data Analyst',
+  'Analytical Thinker',
+  'Data Visualizer'
+]
 
 export default function Hero() {
   const [title, setTitle] = useState('Data Analyst')
