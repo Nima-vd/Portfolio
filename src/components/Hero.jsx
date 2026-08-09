@@ -87,7 +87,7 @@ export default function Hero() {
             <a
               href="#about"
               style={{ color: '#ffffff', opacity: 1 }}
-              className="relative z-10 inline-flex min-h-14 items-center justify-center gap-2 rounded-lg border-2 border-[#51e0bb] bg-[#2d9cdb] px-8 py-4 text-center font-label-md text-label-md font-semibold text-white shadow-lg shadow-[#2d9cdb]/30 transition-all hover:bg-[#51e0bb] hover:text-[#061218]"
+              className="hero-action relative z-10 inline-flex min-h-14 items-center justify-center gap-2 rounded-lg border-2 border-[#7af0d0] bg-[#159bd3] px-8 py-4 text-center font-label-md text-label-md font-semibold text-white shadow-lg shadow-[#2d9cdb]/40 transition-all hover:bg-[#51e0bb] hover:text-[#061218]"
             >
               Explore My Journey <ArrowRight size={17} />
             </a>
@@ -95,7 +95,7 @@ export default function Hero() {
               href="/resume.pdf"
               download="Nima-Norbu-Sherpa-Resume.pdf"
               style={{ color: '#ffffff', opacity: 1 }}
-              className="relative z-10 inline-flex min-h-14 items-center justify-center gap-2 rounded-lg border-2 border-[#b4d9df] bg-[#10232c] px-8 py-4 text-center font-label-md text-label-md font-semibold text-white shadow-lg shadow-black/30 transition-all hover:border-[#51e0bb] hover:bg-[#173944]"
+              className="hero-action relative z-10 inline-flex min-h-14 items-center justify-center gap-2 rounded-lg border-2 border-[#d5f7f5] bg-[#1b4352] px-8 py-4 text-center font-label-md text-label-md font-semibold text-white shadow-lg shadow-black/40 transition-all hover:border-[#51e0bb] hover:bg-[#245b6b]"
             >
               Download My Resume <Download size={16} />
             </a>

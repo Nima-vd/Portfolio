@@ -36,6 +36,8 @@ body {
 .hero-blob-one { width: 18rem; height: 18rem; top: 8%; right: 8%; background: #2455b8; }
 .hero-blob-two { width: 15rem; height: 15rem; bottom: 12%; left: 30%; background: #087f91; animation-delay: -4s; }
 .hero-copy { opacity: 1 !important; color: #edf5f7 !important; }
+.hero-action { color: #ffffff !important; opacity: 1 !important; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45); }
+.hero-action svg { color: #ffffff !important; opacity: 1 !important; }
 .typing-title { color: #7af0d0 !important; }
 .hero-copy p { color: #c4d4d8 !important; }
 .text-shimmer { background: linear-gradient(110deg, #2d9cdb 20%, #7af0d0 45%, #2d9cdb 70%); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 5s linear infinite; }
