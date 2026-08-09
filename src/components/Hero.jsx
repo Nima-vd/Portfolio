@@ -68,7 +68,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.h1 variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease } } }} className="hero-copy font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack-sm">
-            Data Analyst <span className="text-shimmer">| Business Intelligence</span>
+            Data Analyst
           </motion.h1>
           <motion.p variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } } }} className="hero-copy font-headline-sm text-headline-sm text-on-surface mb-stack-sm">
             Nima Norbu Sherpa
@@ -80,14 +80,14 @@ export default function Hero() {
             {title}<span aria-hidden="true" className="typing-cursor">|</span>
           </motion.p>
           <motion.p variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } } }} className="hero-copy font-body-lg text-body-lg text-on-surface-variant mb-stack-md leading-relaxed">
-            I turn structured analysis into clear business decisions through dashboards, data storytelling, and practical problem solving. I am seeking graduate and entry-level opportunities in data analytics, business intelligence, and business analysis.
+            I turn data into clear, actionable insights through analysis, dashboards, and data storytelling. I am seeking graduate and entry-level opportunities where I can apply my analytical and problem-solving skills to support data-driven decision-making.
           </motion.p>
 
           <div className="flex flex-col sm:flex-row gap-stack-sm opacity-100">
             <a
               href="#about"
               style={{ color: '#ffffff', opacity: 1 }}
-              className="relative z-10 inline-flex items-center justify-center gap-2 rounded-lg bg-[#2d9cdb] px-8 py-4 text-center font-label-md text-label-md text-white shadow-lg shadow-[#2d9cdb]/20 transition-all hover:bg-[#51e0bb] hover:text-[#061218]"
+              className="relative z-10 inline-flex min-h-14 items-center justify-center gap-2 rounded-lg border-2 border-[#51e0bb] bg-[#2d9cdb] px-8 py-4 text-center font-label-md text-label-md font-semibold text-white shadow-lg shadow-[#2d9cdb]/30 transition-all hover:bg-[#51e0bb] hover:text-[#061218]"
             >
               Explore My Journey <ArrowRight size={17} />
             </a>
@@ -95,7 +95,7 @@ export default function Hero() {
               href="/resume.pdf"
               download="Nima-Norbu-Sherpa-Resume.pdf"
               style={{ color: '#ffffff', opacity: 1 }}
-              className="relative z-10 inline-flex items-center justify-center gap-2 rounded-lg border border-[#6f9eaa] bg-[#10232c] px-8 py-4 text-center font-label-md text-label-md text-white shadow-lg shadow-black/20 transition-all hover:border-[#51e0bb] hover:bg-[#173944]"
+              className="relative z-10 inline-flex min-h-14 items-center justify-center gap-2 rounded-lg border-2 border-[#b4d9df] bg-[#10232c] px-8 py-4 text-center font-label-md text-label-md font-semibold text-white shadow-lg shadow-black/30 transition-all hover:border-[#51e0bb] hover:bg-[#173944]"
             >
               Download My Resume <Download size={16} />
             </a>
