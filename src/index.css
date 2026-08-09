@@ -36,9 +36,14 @@ body {
 .hero-blob-one { width: 18rem; height: 18rem; top: 8%; right: 8%; background: #2455b8; }
 .hero-blob-two { width: 15rem; height: 15rem; bottom: 12%; left: 30%; background: #087f91; animation-delay: -4s; }
 .hero-copy { opacity: 1 !important; color: #edf5f7 !important; }
-.hero-action { opacity: 1 !important; text-shadow: none; }
-.hero-action-primary, .hero-action-primary svg { color: #061218 !important; }
-.hero-action-secondary, .hero-action-secondary svg { color: #061218 !important; }
+.hero-action {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-flex !important;
+}
+.hero-action-primary { color: #062a24 !important; background-color: #7af0d0 !important; }
+.hero-action-secondary { color: #111827 !important; background-color: #ffffff !important; }
+.hero-action-primary svg, .hero-action-secondary svg { color: currentColor !important; opacity: 1 !important; }
 .typing-title { color: #7af0d0 !important; }
 .hero-copy p { color: #c4d4d8 !important; }
 .text-shimmer { background: linear-gradient(110deg, #2d9cdb 20%, #7af0d0 45%, #2d9cdb 70%); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 5s linear infinite; }

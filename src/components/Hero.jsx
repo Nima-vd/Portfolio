@@ -83,20 +83,21 @@ export default function Hero() {
             I turn data into clear, actionable insights through analysis, dashboards, and data storytelling. I am seeking graduate and entry-level opportunities where I can apply my analytical and problem-solving skills to support data-driven decision-making.
           </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-stack-sm opacity-100">
+          <div className="flex flex-col sm:flex-row gap-4 opacity-100">
             <a
               href="#about"
-              style={{ color: '#ffffff', opacity: 1 }}
-              className="hero-action hero-action-primary relative z-10 inline-flex min-h-14 items-center justify-center gap-2 rounded-lg border-2 border-[#b9fff0] bg-[#7af0d0] px-8 py-4 text-center font-label-md text-label-md font-semibold shadow-lg shadow-[#51e0bb]/40 transition-all hover:bg-[#b9fff0]"
+              className="hero-action hero-action-primary relative z-10 inline-flex min-h-14 items-center justify-center gap-2 rounded-lg border-2 border-[#7af0d0] bg-[#7af0d0] px-8 py-4 text-center font-semibold text-[#062a24] shadow-lg shadow-[#51e0bb]/40 transition-all duration-300 hover:border-[#b9fff0] hover:bg-[#b9fff0] hover:text-[#062a24]"
             >
-              Explore My Journey <ArrowRight size={17} />
+              <span>Explore My Journey</span>
+              <ArrowRight size={17} />
             </a>
             <a
               href="/resume.pdf"
               download="Nima-Norbu-Sherpa-Resume.pdf"
-              className="hero-action hero-action-secondary relative z-10 inline-flex min-h-14 items-center justify-center gap-2 rounded-lg border-2 border-white bg-white px-8 py-4 text-center font-label-md text-label-md font-semibold shadow-lg shadow-black/40 transition-all hover:bg-[#e6fffb]"
+              className="hero-action hero-action-secondary relative z-10 inline-flex min-h-14 items-center justify-center gap-2 rounded-lg border-2 border-white bg-white px-8 py-4 text-center font-semibold text-[#111827] shadow-lg shadow-black/40 transition-all duration-300 hover:border-[#e6fffb] hover:bg-[#e6fffb] hover:text-[#111827]"
             >
-              Download My Resume <Download size={16} />
+              <span>Download My Resume</span>
+              <Download size={16} />
             </a>
           </div>
 
