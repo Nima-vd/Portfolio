@@ -7,14 +7,14 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-stack-md">
           <div className="md:col-span-7 flex flex-col justify-center">
             <p className="eyebrow">About</p>
-            <h2 className="font-headline-md text-headline-md text-on-surface mt-3 mb-stack-sm">An analytical mindset with business context.</h2>
+            <h2 className="font-headline-md text-headline-md text-on-surface mt-3 mb-stack-sm">An analytical mindset with a focus on data.</h2>
             <p className="font-body-md text-body-md text-on-surface-variant mb-stack-sm">
-              I am a Computer Science graduate building a career in data analytics and business intelligence. I approach problems by clarifying the question, checking the quality of the data, and presenting the result in a form people can use.
+              I am a Computer Science graduate and aspiring Data Analyst with a strong interest in turning data into meaningful insights. I approach problems by understanding the question, exploring and validating the data, identifying patterns, and presenting findings in a clear and useful way.
             </p>
             <div className="p-6 bg-surface-container-low border border-outline-variant/30 rounded-xl mt-stack-sm">
               <h3 className="font-headline-sm text-headline-sm text-primary mb-2">My Mission</h3>
               <p className="font-body-md text-body-md text-on-surface-variant italic">
-                My work combines careful problem solving, business understanding, and clear communication. I keep learning so the analysis is not only technically sound, but useful to the person making the decision.
+                My goal is to combine analytical thinking, technical skills, and clear communication to turn data into insights that support better decisions. I continuously learn and improve my skills so that my analysis is accurate, meaningful, and useful to the people who rely on it.
               </p>
             </div>
           </div>
