@@ -117,7 +117,7 @@ export default function ProfessionalProfile() {
           <div>
             <p className="eyebrow">Resume preview</p>
             <h2 className="font-headline-sm text-headline-sm text-on-surface mt-2">A concise view of the profile behind the work.</h2>
-            <p className="font-body-md text-body-md text-on-surface-variant mt-2">Computer Science graduate · Data analysis · Business intelligence · Kathmandu, Nepal</p>
+            <p className="font-body-md text-body-md text-on-surface-variant mt-2">Computer Science graduate · Aspiring Data Analyst · Data Analysis · Kathmandu, Nepal</p>
           </div>
           <div className="resume-preview-meta">
             <span>Education</span><strong>BSc (Hons) Computer Science</strong>

@@ -72,7 +72,7 @@ export default function Education() {
           ))}
         </div>
         <div className="mt-stack-lg flex flex-wrap gap-2">
-          {['Data Analytics & Business Intelligence', 'Python Programming & Data Science', 'SQL Database Management', 'Power BI Dashboard Design & DAX Functions'].map(item => <span key={item} className="filter-chip">{item}</span>)}
+          {['Data Analytics', 'Python Programming & Data Science', 'SQL Database Management', 'Power BI Dashboard Design & DAX Functions'].map(item => <span key={item} className="filter-chip">{item}</span>)}
         </div>
 
       </div>
