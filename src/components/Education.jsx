@@ -35,7 +35,7 @@ export default function Education() {
           Education and foundations
         </h2>
         <p className="text-secondary font-body-md mt-2 mb-stack-lg">
-          My academic journey and qualifications.
+          My academic journey and qualifications, including UK-affiliated study and data analytics training.
         </p>
 
         <div ref={timelineRef} className="space-y-6 education-timeline">

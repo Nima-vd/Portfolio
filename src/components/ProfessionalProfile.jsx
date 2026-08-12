@@ -49,10 +49,10 @@ export default function ProfessionalProfile() {
             <p className="eyebrow">Professional profile</p>
             <h2 className="font-headline-md text-headline-md text-on-surface mt-3">Aspiring Data Analyst, driven by data and curiosity.</h2>
             <p className="font-body-lg text-body-lg text-on-surface-variant mt-5 max-w-2xl">
-              Computer Science graduate with a strong interest in Data Analytics. I use Python, SQL, Power BI, Excel, and Tableau to analyse data, create meaningful visualizations, identify trends, and transform complex information into clear, actionable insights.
+              Computer Science graduate with a strong interest in Data Analytics. I use Python, SQL, Power BI, Excel, and Tableau to analyse data, create meaningful visualizations, identify trends, and transform complex information into clear, actionable insights for business decisions.
             </p>
             <p className="font-body-lg text-body-lg text-on-surface-variant mt-4 max-w-2xl">
-              I’m passionate about using data to understand problems, support informed decision-making, and continuously develop my analytical and technical skills.
+              I’m passionate about using data to understand problems, support informed decision-making, and continuously grow my analytical and technical capabilities for UK and international teams.
             </p>
           </div>
           <div className="profile-learning glass-panel">
@@ -110,14 +110,14 @@ export default function ProfessionalProfile() {
 
         <div className="career-objective mt-stack-xl">
           <p className="eyebrow">What I’m looking for</p>
-          <p className="font-headline-sm text-headline-sm text-on-surface mt-3 max-w-3xl">Graduate and entry-level opportunities in Data Analytics where I can apply my analytical and technical skills to solve real business problems, uncover meaningful insights, and continue growing as a Data Analyst.</p>
+          <p className="font-headline-sm text-headline-sm text-on-surface mt-3 max-w-3xl">Graduate and entry-level UK data analytics roles where I can apply analytical and technical skills to solve real business problems, uncover meaningful insights, and support evidence-based decision-making.</p>
         </div>
 
         <div className="resume-preview mt-stack-xl">
           <div>
             <p className="eyebrow">Resume preview</p>
             <h2 className="font-headline-sm text-headline-sm text-on-surface mt-2">A concise view of the profile behind the work.</h2>
-            <p className="font-body-md text-body-md text-on-surface-variant mt-2">Computer Science graduate · Aspiring Data Analyst · Data Analysis · Kathmandu, Nepal</p>
+          <p className="font-body-md text-body-md text-on-surface-variant mt-2">Computer Science graduate · Aspiring Data Analyst · Data Analysis · Kathmandu, Nepal · Open to UK and remote roles</p>
           </div>
           <div className="resume-preview-meta">
             <span>Education</span><strong>BSc (Hons) Computer Science</strong>

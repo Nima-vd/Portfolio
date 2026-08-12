@@ -9,7 +9,7 @@ export default function About() {
             <p className="eyebrow">About</p>
             <h2 className="font-headline-md text-headline-md text-on-surface mt-3 mb-stack-sm">An analytical mindset with a focus on data.</h2>
             <p className="font-body-md text-body-md text-on-surface-variant mb-stack-sm">
-              I am a Computer Science graduate and aspiring Data Analyst with a strong interest in turning data into meaningful insights. I approach problems by understanding the question, exploring and validating the data, identifying patterns, and presenting findings in a clear and useful way.
+              I am a Computer Science graduate and aspiring Data Analyst with a strong interest in turning data into meaningful insights. I approach problems by understanding the question, exploring and validating the data, identifying patterns, and presenting findings in a clear and useful way for business stakeholders.
             </p>
             <div className="p-6 bg-surface-container-low border border-outline-variant/30 rounded-xl mt-stack-sm">
               <h3 className="font-headline-sm text-headline-sm text-primary mb-2">My Mission</h3>

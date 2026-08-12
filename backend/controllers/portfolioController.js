@@ -2,9 +2,9 @@
 const portfolioData = {
   profile: {
     name: 'Nima Norbu Sherpa',
-    title: 'BSc(Hons) Computer Science Graduate & Junior Data Analyst',
-    bio: 'Passionate about transforming raw data into actionable insights. I bridge the gap between complex computer science principles and sophisticated data analytics.',
-    mission: 'To transform complex datasets into clear, actionable insights through structured analysis and transparent storytelling.',
+    title: 'BSc(Hons) Computer Science Graduate & Aspiring Data Analyst',
+    bio: 'Passionate about turning data into practical business insight for decision-makers. I combine technical rigour with clear communication for UK and remote data analytics teams.',
+    mission: 'To transform complex datasets into clear, actionable insights through structured analysis and transparent storytelling for business teams.',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDhXoeIZxmYDFxrgNkGmm5m7pD6l51sF0G6NE0zoEjtoivLkwiI1mNGJn1vaEk8O7Hp-w1fyGgMAYpJlsyn_hscWBVt1iFeJ6UAV85QjIwDrLTdNCOysd4ifij92udh06X-Rr0ONl8f5xGFCgupsAvgpMeGPTAp92RZi2oo4PzC14UfXDjAOyCdJKZd0w5OYa2gTOLXC66fZv4RRe_lzz0h--g61b-70dZg0dvO5cwDSltKxd1Pk4kSmDBosnYoO56DXjdoR5cr1jY'
   },
 
@@ -21,7 +21,7 @@ const portfolioData = {
     {
       id: 1,
       title: 'Healthcare Analytics',
-      description: 'Comprehensive COVID-19 Analysis using advanced Power BI modeling to track recovery and spread rates.',
+      description: 'Comprehensive healthcare analysis using advanced Power BI modelling to track recovery and spread rates and support operational decisions.',
       tag: 'Power BI',
       imageSrc: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDZJbzw8W34UzEWENdAuoAN3VjHS_nHDm0d-eMdOHemAQlaC24DxR4YB_qQ5-wdFnhnTBq7rpw-MV0CwvSBmAVWjGN1mAawtrKBnwwLRIGUpmnpXLGKmNfYPVZJ_lFGxjWIqpQoMNnMK59mIPMDWyi9ZGyJh6i6OwKPzi-_v1c1BNd0X3wAxpRO8ciTL13Xb36M4QjbvU64rVyt7g7hva33w_zPV3m5h2OXQgNBlIo17oTr6bI5j-REMLMFm-HLO0aEubRpbnuF5kA',
       link: '#'
@@ -29,7 +29,7 @@ const portfolioData = {
     {
       id: 2,
       title: 'Business Intelligence',
-      description: 'In-depth Sales Analysis using Python (Pandas/Matplotlib) to identify seasonal trends and growth opportunities.',
+      description: 'In-depth sales analysis using Python (Pandas/Matplotlib) to identify seasonal trends, customer behaviour, and growth opportunities.',
       tag: 'Python',
       imageSrc: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC1xA4k7oKt_VQnqDDmNPPmG0m44pOHBzl4I77UGTU15LWVwBYUzdYDm3pBkxLfUp6xbvdUH2Aas4MA5yDMQi31aAUstSZPLRy4YpdYKzCDy9_itgQ_enU4PeyLzSziRWpMtV0Q7yag3Yh1Fvyr2Tp3cRzXaaDWMDkIL81fflmAZYkOWuKHQ3_RY3Sy78Pwr5oh5q2ixbHd7TQNjVsR6vUXLoGW3gjth_Wlo5wn71g3EC5IG7xlQ9h1kKkRYytV_HyMAE7Dbz6zZcE',
       link: '#'
@@ -76,7 +76,7 @@ const portfolioData = {
   ],
 
   contact: {
-    location: 'Bouddha, Kathmandu, Nepal',
+    location: 'Bouddha, Kathmandu, Nepal · Open to UK and remote roles',
     phone: '+977 9803059811',
     email: 'nimanorbu353@gmail.com',
     linkedin: 'https://www.linkedin.com/in/nima-norbu-sherpa-026819262/',
