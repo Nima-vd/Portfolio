@@ -10,15 +10,14 @@ const achievements = [
 ]
 
 const stack = [
-  { label: 'Programming', items: ['Python', 'SQL'] },
+  { label: 'Programming', items: ['Python',] },
   { label: 'Visualization', items: ['Power BI', 'Tableau', 'Excel'] },
   { label: 'Libraries', items: ['Pandas', 'NumPy', 'Matplotlib'] },
   { label: 'Databases', items: ['MySQL'] },
-  { label: 'Frontend', items: ['React', 'Tailwind CSS'] },
-  { label: 'Tools', items: ['Git', 'GitHub', 'Figma', 'Canva'] },
+  { label: 'Tools', items: ['GitHub', 'Figma', 'Canva'] },
 ]
 
-const learning = ['Advanced SQL', 'Power BI DAX', 'Statistical analysis', 'Data storytelling', 'Machine learning fundamentals', 'Business intelligence best practices']
+const learning = ['Advanced SQL', 'Power BI DAX', 'Statistical analysis', 'Data storytelling', 'Machine learning fundamentals']
 
 function AnimatedMetric({ value }) {
   const ref = useRef(null)
@@ -27,11 +26,7 @@ function AnimatedMetric({ value }) {
 
   useEffect(() => {
     if (!inView) return undefined
-    const controls = animate(0, value, {
-      duration: 1.1,
-      ease: 'easeOut',
-      onUpdate: latest => setCount(Math.round(latest)),
-    })
+    const controls = animate(0, value, { duration: 1.1, ease: 'easeOut', onUpdate: latest => setCount(Math.round(latest)) })
     return () => controls.stop()
   }, [inView, value])
 
@@ -53,10 +48,10 @@ export default function ProfessionalProfile() {
             <p className="eyebrow">Professional profile</p>
             <h2 className="font-headline-md text-headline-md text-on-surface mt-3">Aspiring Data Analyst, driven by data and curiosity.</h2>
             <p className="font-body-lg text-body-lg text-on-surface-variant mt-5 max-w-2xl">
-              Computer Science graduate with a strong interest in Data Analytics. I use Python, SQL, Power BI, Excel, and Tableau to analyse data, create meaningful visualizations, identify trends, and transform complex information into clear, actionable insights for business decisions.
+              Computer Science graduate aspiring to build a career as a Data Analyst. Skilled in Python, SQL, Power BI, Excel, and Tableau, with a strong foundation in data analysis, visualization, and dashboard development. Passionate about exploring data, identifying trends, and turning complex information into meaningful insights that support better business decisions.
             </p>
             <p className="font-body-lg text-body-lg text-on-surface-variant mt-4 max-w-2xl">
-              I'm passionate about using data to understand problems, support informed decision-making, and continuously grow my analytical and technical capabilities for UK and international teams.
+              I’m passionate about using data to understand problems, support informed decision-making, and continuously grow my analytical and technical capabilities.
             </p>
           </div>
           <div className="profile-learning glass-panel">
@@ -65,26 +60,14 @@ export default function ProfessionalProfile() {
               <span className="font-label-md text-label-md">Currently learning</span>
             </div>
             <p className="font-headline-sm text-headline-sm text-on-surface mt-4">Building depth where analysis meets decisions.</p>
-            <div className="flex flex-wrap gap-2 mt-4">
-              {learning.map(item => <span key={item} className="learning-chip">{item}</span>)}
-            </div>
+            <div className="flex flex-wrap gap-2 mt-4">{learning.map(item => <span key={item} className="learning-chip">{item}</span>)}</div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-stack-lg">
           {achievements.map((achievement, index) => (
-            <motion.article
-              key={achievement.label}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ delay: index * 0.08 }}
-              className="glass-panel"
-            >
-              <p className="text-4xl font-semibold text-primary">
-                <AnimatedMetric value={achievement.value} />
-                {achievement.value === 4 || achievement.value === 7 ? '+' : ''}
-              </p>
+            <motion.article key={achievement.label} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ delay: index * 0.08 }} className="glass-panel">
+              <p className="text-4xl font-semibold text-primary"><AnimatedMetric value={achievement.value} />{achievement.value === 4 || achievement.value === 7 ? '+' : ''}</p>
               <p className="font-label-md text-label-md text-on-surface mt-3">{achievement.label}</p>
               <p className="font-body-md text-body-md text-on-surface-variant mt-2">{achievement.detail}</p>
             </motion.article>
@@ -110,10 +93,7 @@ export default function ProfessionalProfile() {
 
         <div className="mt-stack-xl">
           <div className="flex items-end justify-between gap-4 mb-stack-md">
-            <div>
-              <p className="eyebrow">Why work with me</p>
-              <h2 className="font-headline-md text-headline-md text-on-surface mt-3">Curious, structured, and easy to work with.</h2>
-            </div>
+            <div><p className="eyebrow">Why work with me</p><h2 className="font-headline-md text-headline-md text-on-surface mt-3">Curious, structured, and easy to work with.</h2></div>
             <Sparkles className="hidden sm:block text-primary" size={24} />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -128,17 +108,22 @@ export default function ProfessionalProfile() {
         </div>
 
         <div className="career-objective mt-stack-xl">
-          <p className="eyebrow">What I'm looking for</p>
-          <p className="font-headline-sm text-headline-sm text-on-surface mt-3 max-w-3xl">Graduate and entry-level UK data analytics roles where I can apply analytical and technical skills to solve real business problems, uncover meaningful insights, and support evidence-based decision-making.</p>
-        </div>
+          <p className="eyebrow">What I’m looking for</p>
+          <p className="font-headline-sm text-headline-sm text-on-surface mt-3 max-w-3xl">Aspiring Data Analyst seeking an entry-level opportunity to apply skills in SQL, Python, Excel, Power BI, and data visualization to transform data into actionable insights and support data-driven business decisions.</p>
+        </div>      
 
         <div className="resume-preview mt-stack-xl">
           <div>
             <p className="eyebrow">Resume preview</p>
             <h2 className="font-headline-sm text-headline-sm text-on-surface mt-2">A concise view of the profile behind the work.</h2>
-            <p className="font-body-md text-body-md text-on-surface-variant mt-2">Computer Science graduate | Aspiring Data Analyst | Data Analysis | Kathmandu, Nepal | Open to UK and remote roles</p>
+            <p className="font-body-md text-body-md text-on-surface-variant mt-2">Computer Science Graduate · Entry-Level Data Analyst · SQL · Python · Power BI · Excel · Tableau · Kathmandu, Nepal</p>
+          </div>
+          <div className="resume-preview-image">
+            <img src="/resume-preview.png" alt="Resume preview" className="rounded-lg border border-outline-variant/30 shadow-md" />
           </div>
           <div className="resume-preview-meta">
+            <span>Experience</span><strong>Entry-level data analyst</strong>
+            <span>Skills</span><strong>SQL, Python, Power BI, Excel, Tableau</strong>
             <span>Education</span><strong>BSc (Hons) Computer Science</strong>
             <span>Focus</span><strong>Analysis, dashboards, and decision support</strong>
             <a href="/resume.pdf" download="Nima-Norbu-Sherpa-Resume.pdf" className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-container px-5 py-3 font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors">Download resume <ArrowUpRight size={16} /></a>
