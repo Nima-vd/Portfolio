@@ -80,7 +80,7 @@ export default function Projects() {
         {filteredProjects.length ? <div className="grid grid-cols-1 md:grid-cols-2 gap-stack-md">{filteredProjects.map((project, index) => <ProjectCard key={project.title} project={project} index={index} />)}</div> : <div className="empty-projects glass-panel"><p className="font-label-md text-label-md text-primary">{activeFilter} projects</p><p className="font-body-md text-body-md text-on-surface-variant mt-2">No {activeFilter.toLowerCase()} project is published in the current portfolio yet.</p></div>}
 
         <div className="mt-stack-xl mb-stack-md">
-          <p className="eyebrow">Academic / Other Projects</p>
+          <p className="eyebrow">Academic Projects</p>
           <h3 className="font-headline-sm text-headline-sm text-on-surface mt-3">Full-stack academic work with structured data collection and admin dashboard visualization.</h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
