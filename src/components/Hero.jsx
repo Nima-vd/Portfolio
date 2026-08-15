@@ -81,7 +81,7 @@ export default function Hero() {
             {title}<span aria-hidden="true" className="typing-cursor">|</span>
           </motion.p>
           <motion.p variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease } } }} className="hero-copy font-body-lg text-body-lg text-on-surface-variant mb-stack-md leading-relaxed">
-            I turn data into clear, actionable business insight through analysis, dashboards and storytelling. I am seeking graduate or entry-level UK data analyst roles and remote-friendly opportunities where I can apply analytical rigour, problem-solving, and stakeholder-focused reporting.
+            I turn data into clear, actionable business insight through analysis, dashboards and storytelling. I am seeking graduate or entry-level  data analyst roles where I can apply analytical rigour, problem-solving, and stakeholder-focused reporting.
           </motion.p>
 
           <div className="flex flex-col sm:flex-row gap-4 opacity-100">

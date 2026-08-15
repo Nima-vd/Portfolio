@@ -27,7 +27,11 @@ function AnimatedMetric({ value }) {
 
   useEffect(() => {
     if (!inView) return undefined
-    const controls = animate(0, value, { duration: 1.1, ease: 'easeOut', onUpdate: latest => setCount(Math.round(latest)) })
+    const controls = animate(0, value, {
+      duration: 1.1,
+      ease: 'easeOut',
+      onUpdate: latest => setCount(Math.round(latest)),
+    })
     return () => controls.stop()
   }, [inView, value])
 
@@ -52,7 +56,7 @@ export default function ProfessionalProfile() {
               Computer Science graduate with a strong interest in Data Analytics. I use Python, SQL, Power BI, Excel, and Tableau to analyse data, create meaningful visualizations, identify trends, and transform complex information into clear, actionable insights for business decisions.
             </p>
             <p className="font-body-lg text-body-lg text-on-surface-variant mt-4 max-w-2xl">
-              I’m passionate about using data to understand problems, support informed decision-making, and continuously grow my analytical and technical capabilities for UK and international teams.
+              I'm passionate about using data to understand problems, support informed decision-making, and continuously grow my analytical and technical capabilities for UK and international teams.
             </p>
           </div>
           <div className="profile-learning glass-panel">
@@ -61,14 +65,26 @@ export default function ProfessionalProfile() {
               <span className="font-label-md text-label-md">Currently learning</span>
             </div>
             <p className="font-headline-sm text-headline-sm text-on-surface mt-4">Building depth where analysis meets decisions.</p>
-            <div className="flex flex-wrap gap-2 mt-4">{learning.map(item => <span key={item} className="learning-chip">{item}</span>)}</div>
+            <div className="flex flex-wrap gap-2 mt-4">
+              {learning.map(item => <span key={item} className="learning-chip">{item}</span>)}
+            </div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-stack-lg">
           {achievements.map((achievement, index) => (
-            <motion.article key={achievement.label} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ delay: index * 0.08 }} className="glass-panel">
-              <p className="text-4xl font-semibold text-primary"><AnimatedMetric value={achievement.value} />{achievement.value === 4 || achievement.value === 7 ? '+' : ''}</p>
+            <motion.article
+              key={achievement.label}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ delay: index * 0.08 }}
+              className="glass-panel"
+            >
+              <p className="text-4xl font-semibold text-primary">
+                <AnimatedMetric value={achievement.value} />
+                {achievement.value === 4 || achievement.value === 7 ? '+' : ''}
+              </p>
               <p className="font-label-md text-label-md text-on-surface mt-3">{achievement.label}</p>
               <p className="font-body-md text-body-md text-on-surface-variant mt-2">{achievement.detail}</p>
             </motion.article>
@@ -94,7 +110,10 @@ export default function ProfessionalProfile() {
 
         <div className="mt-stack-xl">
           <div className="flex items-end justify-between gap-4 mb-stack-md">
-            <div><p className="eyebrow">Why work with me</p><h2 className="font-headline-md text-headline-md text-on-surface mt-3">Curious, structured, and easy to work with.</h2></div>
+            <div>
+              <p className="eyebrow">Why work with me</p>
+              <h2 className="font-headline-md text-headline-md text-on-surface mt-3">Curious, structured, and easy to work with.</h2>
+            </div>
             <Sparkles className="hidden sm:block text-primary" size={24} />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -109,7 +128,7 @@ export default function ProfessionalProfile() {
         </div>
 
         <div className="career-objective mt-stack-xl">
-          <p className="eyebrow">What I’m looking for</p>
+          <p className="eyebrow">What I'm looking for</p>
           <p className="font-headline-sm text-headline-sm text-on-surface mt-3 max-w-3xl">Graduate and entry-level UK data analytics roles where I can apply analytical and technical skills to solve real business problems, uncover meaningful insights, and support evidence-based decision-making.</p>
         </div>
 
@@ -117,7 +136,7 @@ export default function ProfessionalProfile() {
           <div>
             <p className="eyebrow">Resume preview</p>
             <h2 className="font-headline-sm text-headline-sm text-on-surface mt-2">A concise view of the profile behind the work.</h2>
-          <p className="font-body-md text-body-md text-on-surface-variant mt-2">Computer Science graduate · Aspiring Data Analyst · Data Analysis · Kathmandu, Nepal · Open to UK and remote roles</p>
+            <p className="font-body-md text-body-md text-on-surface-variant mt-2">Computer Science graduate | Aspiring Data Analyst | Data Analysis | Kathmandu, Nepal | Open to UK and remote roles</p>
           </div>
           <div className="resume-preview-meta">
             <span>Education</span><strong>BSc (Hons) Computer Science</strong>

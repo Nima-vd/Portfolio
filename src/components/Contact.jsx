@@ -25,7 +25,7 @@ export default function Contact() {
     {
       icon: 'location_on',
       title: 'Location',
-      content: 'Bouddha, Kathmandu, Nepal · Open to UK and remote roles'
+      content: 'Bouddha, Kathmandu, Nepal'
     },
     {
       icon: 'call',
@@ -35,7 +35,7 @@ export default function Contact() {
     {
       icon: 'mail',
       title: 'Email',
-      content: 'nimannorbu353@gmail.com'
+      content: 'workwithnima7@gmail.com'
     }
   ]
 
@@ -43,8 +43,7 @@ export default function Contact() {
     <section className="py-stack-xl bg-on-background text-on-primary" id="contact">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter text-center">
         <p className="eyebrow">Open to opportunities</p>
-        <h2 className="font-headline-md text-headline-md mt-3 mb-stack-sm">Let’s build something useful.</h2>
-        <p className="text-secondary-fixed-dim font-body-lg text-body-lg mb-3">I’m open to graduate and entry-level UK and remote Data Analyst opportunities where I can apply my analytical and technical skills, solve real-world problems, and contribute to data-driven decision-making.</p>
+        <p className="text-secondary-fixed-dim font-body-lg text-body-lg mb-3">I’m open to graduate and entry-level Data Analyst opportunities where I can apply my analytical and technical skills, solve real-world problems, and contribute to data-driven decision-making.</p>
         <p className="text-secondary-fixed-dim font-body-lg text-body-lg font-semibold mb-stack-lg">Email is the fastest way to reach me.</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-stack-md max-w-4xl mx-auto mb-stack-lg">
           {contactInfo.map((info, index) => (
