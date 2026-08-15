@@ -92,14 +92,16 @@ export default function Header() {
                 e.preventDefault()
                 navigateTo(item.id)
               }}
-              className={`relative font-label-md text-label-md transition-colors py-5 ${
+              className={`group relative font-label-md text-label-md transition-colors py-5 ${
                 activeId === item.id
                   ? 'text-primary font-semibold'
                   : 'text-secondary hover:text-primary'
               }`}
             >
               {item.label}
-              {activeId === item.id && <motion.span layoutId="active-nav" className="absolute left-0 right-0 bottom-3 h-px bg-primary" />}
+              <span className={`absolute left-0 right-0 bottom-3 h-px origin-left bg-primary transition-transform duration-200 ${
+                activeId === item.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+              }`} />
             </a>
           ))}
         </nav>
