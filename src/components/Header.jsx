@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
-import { ArrowUpRight, BarChart3, Menu, X } from 'lucide-react'
+import { BarChart3, Menu, X } from 'lucide-react'
 
 const navItems = [
   { id: 'hero', label: 'Home' },
@@ -10,6 +10,7 @@ const navItems = [
   { id: 'certificates', label: 'Certificates' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
+  { id: 'contact', label: 'Contact' },
 ]
 
 export default function Header() {
@@ -82,7 +83,7 @@ export default function Header() {
           <BarChart3 size={18} className="text-primary" />
           <span className="truncate font-display-lg text-sm md:text-headline-sm tracking-tight text-on-surface">NIMA NORBU SHERPA</span>
         </div>
-        <nav className="hidden lg:flex gap-5 xl:gap-8" aria-label="Primary navigation">
+        <nav className="hidden lg:flex gap-4 xl:gap-6" aria-label="Primary navigation">
           {navItems.map((item) => (
             <a
               key={item.id}
@@ -102,12 +103,6 @@ export default function Header() {
             </a>
           ))}
         </nav>
-        <button
-          className="group hidden lg:inline-flex bg-primary-container text-on-primary-container px-4 py-2 rounded-lg font-label-md text-label-md transition-all active:scale-95 hover:bg-primary hover:text-on-primary"
-          onClick={() => navigateTo('contact')}
-        >
-          Contact <ArrowUpRight size={15} className="inline ml-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </button>
         <button
           type="button"
           aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
@@ -136,7 +131,6 @@ export default function Header() {
                   {item.label}
                 </button>
               ))}
-              <button type="button" onClick={() => navigateTo('contact')} className="text-left px-3 py-3 rounded-lg font-label-md text-label-md text-primary">Contact</button>
             </div>
           </motion.nav>
         )}
