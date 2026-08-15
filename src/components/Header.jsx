@@ -21,14 +21,34 @@ export default function Header() {
 
   useEffect(() => {
     const sections = navItems.map(item => document.getElementById(item.id)).filter(Boolean)
-    if (!sections.length) return
+    if (!sections.length) return undefined
 
-    const observer = new IntersectionObserver((entries) => {
-      const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
-      if (visible) setActiveId(visible.target.id)
-    }, { rootMargin: '-20% 0px -65% 0px', threshold: [0.1, 0.35, 0.6] })
-    sections.forEach(section => observer.observe(section))
-    return () => observer.disconnect()
+    const updateActiveSection = () => {
+      const headerHeight = headerRef.current?.offsetHeight ?? 0
+      const scrollPosition = window.scrollY + headerHeight + 32
+      let currentId = sections[0].id
+
+      sections.forEach(section => {
+        if (section.offsetTop <= scrollPosition) {
+          currentId = section.id
+        }
+      })
+
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+        currentId = sections[sections.length - 1].id
+      }
+
+      setActiveId(currentId)
+    }
+
+    updateActiveSection()
+    window.addEventListener('scroll', updateActiveSection, { passive: true })
+    window.addEventListener('resize', updateActiveSection)
+
+    return () => {
+      window.removeEventListener('scroll', updateActiveSection)
+      window.removeEventListener('resize', updateActiveSection)
+    }
   }, [])
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
