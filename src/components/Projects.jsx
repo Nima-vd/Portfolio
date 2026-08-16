@@ -74,7 +74,7 @@ function ProjectCard({ project, index }) {
         {project.label ? <p className="font-label-sm text-label-sm text-primary mb-3">{project.label}</p> : null}
         <p className="font-body-md text-body-md text-on-surface-variant mb-5">{project.description}</p>
         <div className="flex items-center gap-4 flex-wrap">
-          <MagneticButton className="text-primary font-label-md text-label-md inline-flex items-center gap-2" href={project.link} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={15} /></MagneticButton>
+          <MagneticButton className="text-primary font-label-md text-label-md inline-flex items-center gap-2" href={project.link} target="_blank" rel="noreferrer">{project.linkLabel || 'GitHub'} <ArrowUpRight size={15} /></MagneticButton>
           {project.demo ? <a className="text-secondary font-label-md text-label-md inline-flex items-center gap-2 hover:text-primary transition-colors" href={project.demo} target="_blank" rel="noreferrer">Live demo <ExternalLink size={14} /></a> : <span className="text-secondary/70 font-label-sm text-label-sm inline-flex items-center gap-2"><ExternalLink size={14} /> Demo not published</span>}
           <button type="button" onClick={() => setExpanded(open => !open)} aria-expanded={expanded} className="ml-auto text-secondary hover:text-primary transition-colors" aria-label={`${expanded ? 'Hide' : 'Show'} ${project.title} case study`}><ChevronDown size={18} className={`transition-transform ${expanded ? 'rotate-180' : ''}`} /></button>
         </div>
