@@ -47,12 +47,6 @@ export default function ProfessionalProfile() {
           <div>
             <p className="eyebrow">Professional profile</p>
             <h2 className="font-headline-md text-headline-md text-on-surface mt-3">Aspiring Data Analyst, driven by data and curiosity.</h2>
-            <p className="font-body-lg text-body-lg text-on-surface-variant mt-5 max-w-2xl">
-              Computer Science graduate aspiring to build a career as a Data Analyst. Skilled in Python, SQL, Power BI, Excel, and Tableau, with a strong foundation in data analysis, visualization, and dashboard development. Passionate about exploring data, identifying trends, and turning complex information into meaningful insights that support better business decisions.
-            </p>
-            <p className="font-body-lg text-body-lg text-on-surface-variant mt-4 max-w-2xl">
-              I’m passionate about using data to understand problems, support informed decision-making, and continuously grow my analytical and technical capabilities.
-            </p>
           </div>
           <div className="profile-learning glass-panel">
             <div className="flex items-center gap-3 text-primary">

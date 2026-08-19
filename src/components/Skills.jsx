@@ -1,41 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 
-const SkillCard = ({ icon, name, percentage }) => {
-  const [animatedWidth, setAnimatedWidth] = useState('0%')
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setAnimatedWidth(`${percentage}%`)
-        observer.unobserve(entry.target)
-      }
-    }, { threshold: 0.1 })
-
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-
-    return () => observer.disconnect()
-  }, [percentage])
-
+const SkillCard = ({ icon, name }) => {
   return (
-    <motion.div ref={ref} whileHover={{ y: -6 }} transition={{ duration: 0.25 }} className="p-6 bg-surface border border-outline-variant/20 rounded-xl bento-item skill-card">
-      <div className="flex justify-between items-center mb-4">
-        <div className="flex items-center gap-3">
-          <span className="material-symbols-outlined text-primary skill-icon" data-icon={icon}>{icon}</span>
-          <span className="font-headline-sm text-headline-sm">{name}</span>
-        </div>
-        <span className="font-label-md text-label-md text-primary">{percentage}%</span>
-      </div>
-      <div className="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
-        <motion.div 
-          className="progress-bar bg-primary-container h-full"
-          initial={{ width: '0%' }}
-          animate={{ width: animatedWidth }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        />
+    <motion.div whileHover={{ y: -6 }} transition={{ duration: 0.25 }} className="p-6 bg-surface border border-outline-variant/20 rounded-xl bento-item skill-card">
+      <div className="flex items-center gap-3">
+        <span className="material-symbols-outlined text-primary skill-icon" data-icon={icon}>{icon}</span>
+        <span className="font-headline-sm text-headline-sm">{name}</span>
       </div>
     </motion.div>
   )
@@ -43,13 +14,13 @@ const SkillCard = ({ icon, name, percentage }) => {
 
 export default function Skills() {
 const skills = [
-  { icon: 'bar_chart', name: 'Power BI', percentage: 80 },
-  { icon: 'analytics', name: 'Data Visualization', percentage: 80 },
-  { icon: 'query_stats', name: 'Data Analysis', percentage: 80 },
-  { icon: 'terminal', name: 'Python', percentage: 80 },
-  { icon: 'table_rows', name: 'Excel', percentage: 70 },
-  { icon: 'database', name: 'SQL', percentage: 60 },
-  { icon: 'dashboard', name: 'Tableau', percentage: 80 },
+  { icon: 'bar_chart', name: 'Power BI' },
+  { icon: 'analytics', name: 'Data Visualization' },
+  { icon: 'query_stats', name: 'Data Analysis' },
+  { icon: 'terminal', name: 'Python' },
+  { icon: 'table_rows', name: 'Excel' },
+  { icon: 'database', name: 'SQL' },
+  { icon: 'dashboard', name: 'Tableau' },
 ]
   return (
     <section className="py-stack-xl bg-surface-container-lowest" id="skills">
