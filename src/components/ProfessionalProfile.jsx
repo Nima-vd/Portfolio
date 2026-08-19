@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { animate, motion, useInView } from 'framer-motion'
-import { ArrowUpRight, BookOpen, BriefcaseBusiness, Database, Layers3, Sparkles } from 'lucide-react'
+import { BookOpen, BriefcaseBusiness, Database, Layers3, Sparkles } from 'lucide-react'
 
 const achievements = [
   { value: 4, label: 'featured projects', detail: 'Across analytics, BI, databases, and web development.' },
@@ -110,24 +110,6 @@ export default function ProfessionalProfile() {
         <div className="career-objective mt-stack-xl">
           <p className="eyebrow">What I’m looking for</p>
           <p className="font-headline-sm text-headline-sm text-on-surface mt-3 max-w-3xl">Aspiring Data Analyst seeking an entry-level opportunity to apply skills in SQL, Python, Excel, Power BI, and data visualization to transform data into actionable insights and support data-driven business decisions.</p>
-        </div>      
-
-        <div className="resume-preview mt-stack-xl">
-          <div>
-            <p className="eyebrow">Resume preview</p>
-            <h2 className="font-headline-sm text-headline-sm text-on-surface mt-2">A concise view of the profile behind the work.</h2>
-            <p className="font-body-md text-body-md text-on-surface-variant mt-2">Computer Science Graduate · Entry-Level Data Analyst · SQL · Python · Power BI · Excel · Tableau · Kathmandu, Nepal</p>
-          </div>
-          <div className="resume-preview-image">
-            <img src="/resume-preview.png" alt="Resume preview" className="rounded-lg border border-outline-variant/30 shadow-md" />
-          </div>
-          <div className="resume-preview-meta">
-            <span>Experience</span><strong>Entry-level data analyst</strong>
-            <span>Skills</span><strong>SQL, Python, Power BI, Excel, Tableau</strong>
-            <span>Education</span><strong>BSc (Hons) Computer Science</strong>
-            <span>Focus</span><strong>Analysis, dashboards, and decision support</strong>
-            <a href="/resume.pdf" download="Nima-Norbu-Sherpa-Resume.pdf" className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary-container px-5 py-3 font-label-md text-label-md text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors">Download resume <ArrowUpRight size={16} /></a>
-          </div>
         </div>
       </div>
     </section>
