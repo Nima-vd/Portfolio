@@ -5,6 +5,10 @@ import { MagneticButton } from './Motion'
 
 const filters = ['All', 'Power BI', 'Python', 'SQL', 'Excel', 'Tableau', 'Streamlit']
 const airbnbDashboardUrl = 'https://public.tableau.com/views/AirBnB_17868643569130/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link'
+const powerBiDemoLinks = {
+  'Data Professional Survey Breakdown': 'https://app.powerbi.com/groups/me/reports/7fd9867a-8716-4749-8dbf-9d0dc7ad28d3/31dedc16a0370310a1e2?experience=power-bi',
+  'Online Retail Sales Analysis': 'https://app.powerbi.com/groups/me/reports/0c768731-399d-4c0b-ae98-fe50f5b4aca2/4ca8e2cdc3c3cbad2e09?experience=power-bi',
+}
 
 const createSvgImage = (title, accent, secondary, subtitle = 'Data-driven portfolio project') => {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"><rect width="1200" height="800" rx="36" fill="#0F172A"/><rect x="40" y="40" width="1120" height="720" rx="28" fill="url(#grad)"/><circle cx="930" cy="220" r="140" fill="${secondary}" opacity="0.28"/><circle cx="260" cy="620" r="180" fill="${accent}" opacity="0.22"/><path d="M140 610c90-120 180-180 292-180 120 0 201 58 304 58 94 0 183-48 260-132" stroke="white" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.9"/><text x="180" y="92" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="700">${title}</text><text x="180" y="132" fill="rgba(255,255,255,0.82)" font-family="Segoe UI, Arial, sans-serif" font-size="24">${subtitle}</text><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="${accent}"/><stop offset="100%" stop-color="${secondary}"/></linearGradient></defs></svg>`
@@ -63,6 +67,7 @@ const academicProjects = [
 
 function ProjectCard({ project, index }) {
   const [expanded, setExpanded] = useState(false)
+  const demo = project.demo || powerBiDemoLinks[project.title]
   return (
     <motion.article initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ delay: index * 0.07 }} className="group bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden project-card" style={{ perspective: 900 }}>
       <div className="aspect-video bg-surface-container-high overflow-hidden relative">
