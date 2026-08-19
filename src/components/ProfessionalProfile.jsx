@@ -87,7 +87,6 @@ export default function ProfessionalProfile() {
 
         <div className="mt-stack-xl">
           <div className="flex items-end justify-between gap-4 mb-stack-md">
-            <div><p className="eyebrow">Why work with me</p><h2 className="font-headline-md text-headline-md text-on-surface mt-3">Curious, structured, and easy to work with.</h2></div>
             <Sparkles className="hidden sm:block text-primary" size={24} />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
