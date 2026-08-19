@@ -9,6 +9,9 @@ const powerBiDemoLinks = {
   'Data Professional Survey Breakdown': 'https://app.powerbi.com/groups/me/reports/7fd9867a-8716-4749-8dbf-9d0dc7ad28d3/31dedc16a0370310a1e2?experience=power-bi',
   'Online Retail Sales Analysis': 'https://app.powerbi.com/groups/me/reports/0c768731-399d-4c0b-ae98-fe50f5b4aca2/4ca8e2cdc3c3cbad2e09?experience=power-bi',
 }
+const streamlitDemoLinks = {
+  'Economic Indicators Dashboard': 'https://dashboard-nepal.streamlit.app/',
+}
 
 const createSvgImage = (title, accent, secondary, subtitle = 'Data-driven portfolio project') => {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"><rect width="1200" height="800" rx="36" fill="#0F172A"/><rect x="40" y="40" width="1120" height="720" rx="28" fill="url(#grad)"/><circle cx="930" cy="220" r="140" fill="${secondary}" opacity="0.28"/><circle cx="260" cy="620" r="180" fill="${accent}" opacity="0.22"/><path d="M140 610c90-120 180-180 292-180 120 0 201 58 304 58 94 0 183-48 260-132" stroke="white" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.9"/><text x="180" y="92" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="700">${title}</text><text x="180" y="132" fill="rgba(255,255,255,0.82)" font-family="Segoe UI, Arial, sans-serif" font-size="24">${subtitle}</text><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="${accent}"/><stop offset="100%" stop-color="${secondary}"/></linearGradient></defs></svg>`
@@ -40,6 +43,26 @@ const dataAnalyticsProjects = [
     ],
   },
   { title: 'Economic Indicators Dashboard', tag: 'Streamlit', category: 'Streamlit', description: 'A Streamlit dashboard analysing GDP growth, inflation, and remittance trends over a multi-year period.', imageSrc: createSvgImage('Economic Dashboard', '#10b981', '#0f766e'), link: 'https://github.com/Nima-vd/Nepal-Economic-Dashboard', demo: null, problem: 'Make long-term economic indicators easier to explore together through an interactive dashboard.', dataset: 'Economic indicator time-series data from 2000 to 2023.', tools: 'Python, Streamlit, data preparation, and interactive visualization.', methodology: 'Bring multiple indicators into one navigable dashboard for trend comparison.', dataCleaning: 'Align indicator names, years, and values to support consistent time-series views.', analysis: 'Compare GDP growth, inflation, and remittance trends across the shared period.', insights: 'Users can inspect multiple indicators across the same time window and identify key shifts.', value: 'Creates a clearer starting point for contextual economic analysis and stakeholder review.', challenges: 'Making indicators with different scales readable in one dashboard.', learned: 'How interactive controls can make longitudinal analysis more approachable.' },
+  {
+    title: 'Excel Data Analytics Dashboard',
+    tag: 'Excel',
+    category: 'Excel',
+    label: 'Data Cleaning / Dashboard Development',
+    description: 'An interactive Excel dashboard built from cleaned customer data using formulas, PivotTables, charts, and slicers.',
+    imageSrc: createSvgImage('Excel Analytics Dashboard', '#16a34a', '#0f766e', 'Interactive Excel dashboard'),
+    link: 'https://github.com/Nima-vd/Excel-Data-Analytics-dashboard',
+    demo: null,
+    problem: 'Transform a raw customer dataset into a clear and interactive dashboard for exploring business patterns.',
+    dataset: 'Customer dataset with 26,100 unique records after duplicate removal and preparation.',
+    tools: 'Microsoft Excel, Excel formulas, PivotTables, PivotCharts, slicers, and dashboard design.',
+    methodology: 'Clean and format the source data, create an age group field, summarize dimensions with PivotTables, then connect charts and slicers into an interactive dashboard.',
+    dataCleaning: 'Removed duplicate records, standardized values with Find and Replace, formatted income and currency fields, adjusted decimal places, and created age groups with an IF formula.',
+    analysis: 'Explored income, purchases, age, customer commute, marital status, region, education, and occupation.',
+    insights: 'The dashboard makes customer segments and relationships between income, purchasing, demographic, and regional dimensions easier to explore.',
+    value: 'Demonstrates how Excel can turn a prepared dataset into an accessible, filterable business analysis tool.',
+    challenges: 'Keeping the data preparation, PivotTable summaries, charts, and slicer interactions consistent across the dashboard.',
+    learned: 'Strengthened practical skills in data cleaning, conditional logic, PivotTables, visualization, and interactive dashboard development.',
+  },
 ]
 
 const academicProjects = [
@@ -67,7 +90,7 @@ const academicProjects = [
 
 function ProjectCard({ project, index }) {
   const [expanded, setExpanded] = useState(false)
-  const demo = project.demo || powerBiDemoLinks[project.title]
+  const demo = project.demo || powerBiDemoLinks[project.title] || streamlitDemoLinks[project.title]
   return (
     <motion.article initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ delay: index * 0.07 }} className="group bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden project-card" style={{ perspective: 900 }}>
       <div className="aspect-video bg-surface-container-high overflow-hidden relative">
@@ -98,7 +121,7 @@ export default function Projects() {
   return (
     <section className="py-stack-xl bg-surface" id="projects">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-stack-lg"><div><p className="eyebrow">Selected work</p><h2 className="font-headline-md text-headline-md text-on-surface mt-3">Projects with a point of view.</h2><p className="text-secondary font-body-md mt-2 max-w-2xl">A focused sample of data analytics work and academic application development. Open a case study to see the problem, method, and project context.</p></div><div className="project-stats"><span><strong>04</strong> analytics</span><span><strong>01</strong> academic</span></div></div>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-stack-lg"><div><p className="eyebrow">Selected work</p><h2 className="font-headline-md text-headline-md text-on-surface mt-3">Projects with a point of view.</h2><p className="text-secondary font-body-md mt-2 max-w-2xl">A focused sample of data analytics work and academic application development. Open a case study to see the problem, method, and project context.</p></div><div className="project-stats"><span><strong>05</strong> analytics</span><span><strong>01</strong> academic</span></div></div>
         <div className="mb-stack-md">
           <p className="eyebrow">Data Analytics Projects</p>
           <h3 className="font-headline-sm text-headline-sm text-on-surface mt-3">Analysis, dashboards, and data-focused workflows.</h3>
