@@ -92,8 +92,8 @@ export default function Hero() {
               <ArrowRight size={17} />
             </a>
             <a
-              href="/resume.pdf"
-              download="Nima-Norbu-Sherpa-Resume.pdf"
+              href="/Nima_Norbu_Sherpa.pdf"
+              download="Nima_Norbu_Sherpa.pdf"
               className="hero-action hero-action-secondary relative z-10 inline-flex min-h-14 items-center justify-center gap-2 rounded-lg border-2 border-white bg-white px-8 py-4 text-center font-semibold text-[#111827] shadow-lg shadow-black/40 transition-all duration-300 hover:border-[#e6fffb] hover:bg-[#e6fffb] hover:text-[#111827]"
             >
               <span>Download My Resume</span>

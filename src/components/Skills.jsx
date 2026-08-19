@@ -43,12 +43,12 @@ const SkillCard = ({ icon, name, percentage }) => {
 
 export default function Skills() {
 const skills = [
-  { icon: 'bar_chart', name: 'Power BI', percentage: 90 },
-  { icon: 'analytics', name: 'Data Visualization', percentage: 90 },
-  { icon: 'query_stats', name: 'Data Analysis', percentage: 90 },
-  { icon: 'terminal', name: 'Python', percentage: 85 },
-  { icon: 'table_rows', name: 'Excel', percentage: 85 },
-  { icon: 'database', name: 'SQL', percentage: 85 },
+  { icon: 'bar_chart', name: 'Power BI', percentage: 80 },
+  { icon: 'analytics', name: 'Data Visualization', percentage: 80 },
+  { icon: 'query_stats', name: 'Data Analysis', percentage: 80 },
+  { icon: 'terminal', name: 'Python', percentage: 80 },
+  { icon: 'table_rows', name: 'Excel', percentage: 70 },
+  { icon: 'database', name: 'SQL', percentage: 60 },
   { icon: 'dashboard', name: 'Tableau', percentage: 80 },
 ]
   return (
