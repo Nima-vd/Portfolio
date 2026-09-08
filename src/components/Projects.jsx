@@ -63,6 +63,66 @@ const dataAnalyticsProjects = [
     challenges: 'Keeping the data preparation, PivotTable summaries, charts, and slicer interactions consistent across the dashboard.',
     learned: 'Strengthened practical skills in data cleaning, conditional logic, PivotTables, visualization, and interactive dashboard development.',
   },
+  {
+    title: 'Superstore Sales Analysis',
+    tag: 'Power BI',
+    category: 'Power BI',
+    label: 'SQL / Power BI / Excel',
+    description: 'An end-to-end sales and profitability analysis combining MySQL, Excel, SQL window functions, and interactive Power BI dashboards.',
+    imageSrc: createSvgImage('Superstore Sales Analysis', '#f97316', '#0f766e', 'Sales and profitability insights'),
+    link: 'https://github.com/Nima-vd/Super_store_sales',
+    demo: null,
+    problem: 'Turn Superstore sales records into actionable insight about revenue, profitability, regional performance, product performance, and discount impact.',
+    dataset: '9,994 Superstore sales records prepared and validated in Excel.',
+    tools: 'MySQL, SQL, Excel, Power BI, DAX, CTEs, subqueries, and window functions.',
+    methodology: 'Clean and validate the source data, load it into MySQL for business analysis, then connect the results to interactive Power BI dashboards.',
+    dataCleaning: 'Prepared and validated the sales dataset in Excel before loading it into MySQL for analysis.',
+    analysis: 'Analyzed sales, profit, margin, year-over-year trends, regional and category performance, discounts, loss-making products, and product rankings.',
+    insights: 'West leads regional performance, Technology has the strongest category margin, and profitability drops sharply as discounts increase. Furniture and Tables require particular attention.',
+    value: 'Gives decision-makers a connected view of sales growth, profitability drivers, and areas requiring commercial action.',
+    challenges: 'Combining SQL analysis, DAX measures, and dashboard design into a consistent multi-page reporting experience.',
+    learned: 'Practiced SQL window functions, ranking, KPI development, and translating analytical findings into business recommendations.',
+  },
+  {
+    title: 'HR Attrition & Retention Analysis',
+    tag: 'Power BI',
+    category: 'Power BI',
+    label: 'Excel / Power Query / DAX',
+    description: 'An interactive HR analytics dashboard exploring employee attrition, workforce patterns, and potential retention signals.',
+    imageSrc: createSvgImage('HR Attrition Analysis', '#dc2626', '#2563eb', 'Workforce retention insights'),
+    link: 'https://github.com/Nima-vd/HR_Attrition',
+    demo: null,
+    problem: 'Identify where employee attrition is concentrated and which workforce factors are associated with higher turnover.',
+    dataset: 'IBM HR Employee Attrition dataset prepared for Power BI analysis.',
+    tools: 'Excel, Power Query, Power BI, DAX, data modelling, slicers, bookmarks, and dashboard navigation.',
+    methodology: 'Inspect and transform the employee data, structure the reporting model, create HR measures, and build overview, attrition, retention, and recommendations views.',
+    dataCleaning: 'Reviewed data quality, transformed relevant fields in Power Query, and prepared demographic, employment, satisfaction, and attrition dimensions.',
+    analysis: 'Compared attrition by department, job role, tenure, income, travel, overtime, job satisfaction, work-life balance, and other workforce characteristics.',
+    insights: 'Attrition is highest during early tenure and is more concentrated among lower-income employees and frequent business travellers. These are associations for further investigation, not proof of causation.',
+    value: 'Helps HR teams monitor attrition patterns, compare workforce segments, and identify focused areas for retention research.',
+    challenges: 'Making a broad set of employee factors easy to explore while keeping the dashboard clear and analytically responsible.',
+    learned: 'Strengthened Power Query, DAX, data modelling, dashboard UX, and correlation-versus-causation reasoning.',
+  },
+  {
+    title: 'E-Commerce Funnel Analysis',
+    tag: 'Power BI',
+    category: 'Power BI',
+    label: 'Excel / SQL / Power BI',
+    description: 'An end-to-end e-commerce analysis of customer funnel performance, revenue drivers, product performance, customer value, and retention opportunities.',
+    imageSrc: createSvgImage('E-Commerce Funnel Analysis', '#0891b2', '#f59e0b', 'Funnel and customer insights'),
+    link: 'https://github.com/Nima-vd/E-commerce-funnel-',
+    demo: null,
+    problem: 'Understand where customers drop out of the journey from product view to cart addition to purchase, and identify opportunities for conversion and retention.',
+    dataset: '885,129 e-commerce events from September 2020 to February 2021.',
+    tools: 'Excel, MySQL, SQL, Power BI, Power Query, DAX, data modelling, and interactive visualizations.',
+    methodology: 'Prepare event data, analyze funnel stages and customer behavior in SQL, then build Power BI pages for funnel performance, customer and product analysis, and retention.',
+    dataCleaning: 'Validated and prepared event, customer, product, brand, category, time, and revenue fields for analysis.',
+    analysis: 'Measured views, cart additions, purchases, conversion, revenue by category and brand, customer value, repeat purchasing, and purchasing time patterns.',
+    insights: 'The dataset contains a substantial view-to-purchase drop-off, a large low-value customer segment, and a small but important VIP group, creating opportunities for conversion and repeat-purchase strategies.',
+    value: 'Connects customer journey behavior with revenue and retention metrics to support e-commerce growth decisions.',
+    challenges: 'Working with a large event dataset and translating session, customer, product, and time analysis into an understandable dashboard.',
+    learned: 'Practiced funnel analysis, customer segmentation, SQL date and window functions, DAX measures, and retention-focused storytelling.',
+  },
 ]
 
 const academicProjects = [
@@ -121,7 +181,7 @@ export default function Projects() {
   return (
     <section className="py-stack-xl bg-surface" id="projects">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-stack-lg"><div><p className="eyebrow">Selected work</p><h2 className="font-headline-md text-headline-md text-on-surface mt-3">Projects with a point of view.</h2><p className="text-secondary font-body-md mt-2 max-w-2xl">A focused sample of data analytics work and academic application development. Open a case study to see the problem, method, and project context.</p></div><div className="project-stats"><span><strong>05</strong> analytics</span><span><strong>01</strong> academic</span></div></div>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-stack-lg"><div><p className="eyebrow">Selected work</p><h2 className="font-headline-md text-headline-md text-on-surface mt-3">Projects with a point of view.</h2><p className="text-secondary font-body-md mt-2 max-w-2xl">A focused sample of data analytics work and academic application development. Open a case study to see the problem, method, and project context.</p></div><div className="project-stats"><span><strong>09</strong> analytics</span><span><strong>01</strong> academic</span></div></div>
         <div className="mb-stack-md">
           <p className="eyebrow">Data Analytics Projects</p>
           <h3 className="font-headline-sm text-headline-sm text-on-surface mt-3">Analysis, dashboards, and data-focused workflows.</h3>
