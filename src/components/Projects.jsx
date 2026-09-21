@@ -2,6 +2,15 @@ import React, { useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowUpRight, ChevronDown, ExternalLink } from 'lucide-react'
 import { MagneticButton } from './Motion'
+import airbnbImage from '../assets/Airbnb.jpg'
+import earthquakeImage from '../assets/Earthquake analysis.jpg'
+import ecommerceFunnelImage from '../assets/Ecommerce funnel.jpg'
+import economicIndicatorsImage from '../assets/Economic indicators.jpg'
+import excelAnalyticsImage from '../assets/Excel analytics.jpg'
+import hrAnalyticsImage from '../assets/HR analytics.jpg'
+import onlineRetailImage from '../assets/Online Retail Analysis.jpg'
+import potholeImage from '../assets/Pothole.jpg'
+import superstoreSalesImage from '../assets/Superstore sales.jpg'
 import surveyDashboardImage from '../assets/image.png'
 
 const filters = ['All', 'Power BI', 'Python', 'SQL', 'Excel', 'Tableau', 'Streamlit']
@@ -15,12 +24,13 @@ const streamlitDemoLinks = {
 }
 
 const createSvgImage = (title, accent, secondary, subtitle = 'Data-driven portfolio project') => {
+  if (title === 'Online Retail Analysis') return onlineRetailImage
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"><rect width="1200" height="800" rx="36" fill="#0F172A"/><rect x="40" y="40" width="1120" height="720" rx="28" fill="url(#grad)"/><circle cx="930" cy="220" r="140" fill="${secondary}" opacity="0.28"/><circle cx="260" cy="620" r="180" fill="${accent}" opacity="0.22"/><path d="M140 610c90-120 180-180 292-180 120 0 201 58 304 58 94 0 183-48 260-132" stroke="white" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.9"/><text x="180" y="92" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="36" font-weight="700">${title}</text><text x="180" y="132" fill="rgba(255,255,255,0.82)" font-family="Segoe UI, Arial, sans-serif" font-size="24">${subtitle}</text><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="${accent}"/><stop offset="100%" stop-color="${secondary}"/></linearGradient></defs></svg>`
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`
 }
 
 const dataAnalyticsProjects = [
-  { title: 'Earthquake Risk Analysis', tag: 'Python', category: 'Python', description: 'A Python workflow for collecting, cleaning, and visualizing earthquake event data from the USGS API.', imageSrc: createSvgImage('Earthquake Analysis', '#f59e0b', '#dc2626'), link: 'https://github.com/Nima-vd/Earthquake_analysis', demo: null, problem: 'Make earthquake activity easier to inspect through a repeatable analytical workflow.', dataset: 'USGS earthquake event data.', tools: 'Python, data collection, cleaning, and visualization.', methodology: 'Collect source data, prepare it for analysis, then visualize patterns and risk signals.', dataCleaning: 'Standardize API fields and prepare records for consistent filtering and comparison.', analysis: 'Explore activity by location, timing, and earthquake characteristics.', insights: 'The workflow creates a repeatable view of seismic activity and risk patterns.', value: 'Supports clearer exploration of hazard trends and a foundation for future risk reporting.', challenges: 'Working with changing API responses while maintaining a consistent analysis pipeline.', learned: 'How a reliable data pipeline improves the quality of downstream visual analysis.' },
+  { title: 'Earthquake Risk Analysis', tag: 'Python', category: 'Python', description: 'A Python workflow for collecting, cleaning, and visualizing earthquake event data from the USGS API.', imageSrc: earthquakeImage, link: 'https://github.com/Nima-vd/Earthquake_analysis', demo: null, problem: 'Make earthquake activity easier to inspect through a repeatable analytical workflow.', dataset: 'USGS earthquake event data.', tools: 'Python, data collection, cleaning, and visualization.', methodology: 'Collect source data, prepare it for analysis, then visualize patterns and risk signals.', dataCleaning: 'Standardize API fields and prepare records for consistent filtering and comparison.', analysis: 'Explore activity by location, timing, and earthquake characteristics.', insights: 'The workflow creates a repeatable view of seismic activity and risk patterns.', value: 'Supports clearer exploration of hazard trends and a foundation for future risk reporting.', challenges: 'Working with changing API responses while maintaining a consistent analysis pipeline.', learned: 'How a reliable data pipeline improves the quality of downstream visual analysis.' },
   { title: 'Data Professional Survey Breakdown', tag: 'Power BI', category: 'Power BI', description: 'An interactive Power BI dashboard highlighting salary, skills, and career insights from a survey of data professionals.', imageSrc: surveyDashboardImage, link: 'https://github.com/Nima-vd/Data-Professional-Survey-PowerBI', demo: null, problem: 'Turn a broad survey into an accessible view of data-career patterns.', dataset: 'Survey data from data professionals.', tools: 'Power BI, data modeling, dashboard design, and visual analysis.', methodology: 'Organize survey dimensions into interactive views that support comparison and exploration.', dataCleaning: 'Prepare survey fields and categories so comparisons remain consistent across visuals.', analysis: 'Compare salary, skills, and career context through interactive dashboard views.', insights: 'The dashboard makes salary, skills, and career context easier to compare.', value: 'Shows how a broad survey can become a useful decision-support surface.', challenges: 'Presenting varied survey responses without obscuring important differences.', learned: 'How information design affects the usefulness of a business dashboard.' },
   { title: 'Online Retail Sales Analysis', tag: 'Power BI', category: 'Power BI', description: 'An interactive Power BI dashboard analyzing online retail sales data with insights into revenue, products, customers, and year-over-year growth trends.', imageSrc: createSvgImage('Online Retail Analysis', '#8b5cf6', '#06b6d4'), link: 'https://github.com/Nima-vd/online-retail-powerbi-analysis', demo: null, problem: 'Transform raw retail transaction data into an interactive business intelligence dashboard that provides actionable insights into sales performance and business metrics.', dataset: 'Online retail transaction data from two yearly periods.', tools: 'Microsoft Power BI, Power Query, DAX, Data Modeling, Excel, and Data Visualization.', methodology: 'Combine and prepare data using Power Query, create a date table for time-based analysis, establish data relationships, and build multi-page dashboards with interactive visualizations.', dataCleaning: 'Combined yearly datasets, transformed data types, created calculated revenue columns, and prepared the dataset for comprehensive analysis.', analysis: 'Analyzed sales performance through three dashboard pages: Executive Overview (revenue, orders, customers, KPIs), Product & Customer Analysis (top products, top customers, revenue patterns), and Geographic & Time Analysis (country performance, monthly trends, year-over-year growth).', insights: 'The dashboards reveal key metrics including total revenue, order and customer counts, top-performing products and countries, average order value, revenue per customer, and year-over-year growth patterns.', value: 'Provides business stakeholders with a comprehensive view of retail performance enabling data-driven decision-making across sales, product, and geographic dimensions.', challenges: 'Working with data preparation at scale, creating meaningful DAX measures, and designing intuitive dashboards that answer multiple business questions simultaneously.', learned: 'Power Query data transformation, data modeling and relationships, DAX measures (SUM vs SUMX), date functions, drill-down capabilities, conditional formatting, and building multi-page interactive dashboards.' },
   {
@@ -30,7 +40,7 @@ const dataAnalyticsProjects = [
     label: 'Data Analytics / Data Visualization',
     tags: ['Tableau Public', 'Data Analytics', 'Data Visualization'],
     description: 'An interactive Tableau dashboard analysing Airbnb listings, pricing, property characteristics, geographic differences, and trends over time.',
-    imageSrc: createSvgImage('Airbnb Tableau Dashboard', '#e11d48', '#0ea5e9', 'Airbnb pricing and listing insights'),
+    imageSrc: airbnbImage,
     link: airbnbDashboardUrl,
     linkLabel: 'View Dashboard',
     showDemoStatus: false,
@@ -43,14 +53,14 @@ const dataAnalyticsProjects = [
       ['Tableau Dashboard Link', 'Use the View Dashboard button to open the interactive Tableau Public dashboard in a new tab.'],
     ],
   },
-  { title: 'Economic Indicators Dashboard', tag: 'Streamlit', category: 'Streamlit', description: 'A Streamlit dashboard analysing GDP growth, inflation, and remittance trends over a multi-year period.', imageSrc: createSvgImage('Economic Dashboard', '#10b981', '#0f766e'), link: 'https://github.com/Nima-vd/Nepal-Economic-Dashboard', demo: null, problem: 'Make long-term economic indicators easier to explore together through an interactive dashboard.', dataset: 'Economic indicator time-series data from 2000 to 2023.', tools: 'Python, Streamlit, data preparation, and interactive visualization.', methodology: 'Bring multiple indicators into one navigable dashboard for trend comparison.', dataCleaning: 'Align indicator names, years, and values to support consistent time-series views.', analysis: 'Compare GDP growth, inflation, and remittance trends across the shared period.', insights: 'Users can inspect multiple indicators across the same time window and identify key shifts.', value: 'Creates a clearer starting point for contextual economic analysis and stakeholder review.', challenges: 'Making indicators with different scales readable in one dashboard.', learned: 'How interactive controls can make longitudinal analysis more approachable.' },
+  { title: 'Economic Indicators Dashboard', tag: 'Streamlit', category: 'Streamlit', description: 'A Streamlit dashboard analysing GDP growth, inflation, and remittance trends over a multi-year period.', imageSrc: economicIndicatorsImage, link: 'https://github.com/Nima-vd/Nepal-Economic-Dashboard', demo: null, problem: 'Make long-term economic indicators easier to explore together through an interactive dashboard.', dataset: 'Economic indicator time-series data from 2000 to 2023.', tools: 'Python, Streamlit, data preparation, and interactive visualization.', methodology: 'Bring multiple indicators into one navigable dashboard for trend comparison.', dataCleaning: 'Align indicator names, years, and values to support consistent time-series views.', analysis: 'Compare GDP growth, inflation, and remittance trends across the shared period.', insights: 'Users can inspect multiple indicators across the same time window and identify key shifts.', value: 'Creates a clearer starting point for contextual economic analysis and stakeholder review.', challenges: 'Making indicators with different scales readable in one dashboard.', learned: 'How interactive controls can make longitudinal analysis more approachable.' },
   {
     title: 'Excel Data Analytics Dashboard',
     tag: 'Excel',
     category: 'Excel',
     label: 'Data Cleaning / Dashboard Development',
     description: 'An interactive Excel dashboard built from cleaned customer data using formulas, PivotTables, charts, and slicers.',
-    imageSrc: createSvgImage('Excel Analytics Dashboard', '#16a34a', '#0f766e', 'Interactive Excel dashboard'),
+    imageSrc: excelAnalyticsImage,
     link: 'https://github.com/Nima-vd/Excel-Data-Analytics-dashboard',
     demo: null,
     problem: 'Transform a raw customer dataset into a clear and interactive dashboard for exploring business patterns.',
@@ -70,7 +80,7 @@ const dataAnalyticsProjects = [
     category: 'Power BI',
     label: 'SQL / Power BI / Excel',
     description: 'An end-to-end sales and profitability analysis combining MySQL, Excel, SQL window functions, and interactive Power BI dashboards.',
-    imageSrc: createSvgImage('Superstore Sales Analysis', '#f97316', '#0f766e', 'Sales and profitability insights'),
+    imageSrc: superstoreSalesImage,
     link: 'https://github.com/Nima-vd/Super_store_sales',
     demo: null,
     problem: 'Turn Superstore sales records into actionable insight about revenue, profitability, regional performance, product performance, and discount impact.',
@@ -90,7 +100,7 @@ const dataAnalyticsProjects = [
     category: 'Power BI',
     label: 'Excel / Power Query / DAX',
     description: 'An interactive HR analytics dashboard exploring employee attrition, workforce patterns, and potential retention signals.',
-    imageSrc: createSvgImage('HR Attrition Analysis', '#dc2626', '#2563eb', 'Workforce retention insights'),
+    imageSrc: hrAnalyticsImage,
     link: 'https://github.com/Nima-vd/HR_Attrition',
     demo: null,
     problem: 'Identify where employee attrition is concentrated and which workforce factors are associated with higher turnover.',
@@ -110,7 +120,7 @@ const dataAnalyticsProjects = [
     category: 'Power BI',
     label: 'Excel / SQL / Power BI',
     description: 'An end-to-end e-commerce analysis of customer funnel performance, revenue drivers, product performance, customer value, and retention opportunities.',
-    imageSrc: createSvgImage('E-Commerce Funnel Analysis', '#0891b2', '#f59e0b', 'Funnel and customer insights'),
+    imageSrc: ecommerceFunnelImage,
     link: 'https://github.com/Nima-vd/E-commerce-funnel-',
     demo: null,
     problem: 'Understand where customers drop out of the journey from product view to cart addition to purchase, and identify opportunities for conversion and retention.',
@@ -133,7 +143,7 @@ const academicProjects = [
     category: 'Academic Projects',
     label: 'Final Year Project · Full-Stack Web Application',
     description: 'A final-year full-stack web application for structured road safety incident reporting, management, and administrative data visualization.',
-    imageSrc: createSvgImage('Road Safety Platform', '#14b8a6', '#2563eb', 'Academic full-stack project'),
+    imageSrc: potholeImage,
     link: 'https://github.com/Nima-vd/sadaksachet',
     demo: null,
     problem: 'Develop a centralized platform for collecting, managing, reviewing, and visualizing road safety incident reports through different user roles.',
