@@ -18,7 +18,8 @@ import { Reveal } from './components/Motion'
 function App() {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
-    const lenis = new Lenis({ duration: 1.1, smoothWheel: true, syncTouch: true })
+    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches
+    const lenis = new Lenis({ duration: 1.1, smoothWheel: !isTouchDevice, syncTouch: false })
     let frameId
     const raf = (time) => {
       lenis.raf(time)

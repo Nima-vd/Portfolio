@@ -44,7 +44,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative overflow-hidden min-h-[795px] flex items-center hero-grid"
+      className="relative overflow-hidden min-h-[795px] flex items-center hero-grid max-sm:min-h-0"
       id="hero"
       onPointerMove={handlePointerMove}
     >
