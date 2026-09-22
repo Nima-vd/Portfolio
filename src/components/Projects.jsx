@@ -163,7 +163,7 @@ function ProjectCard({ project, index }) {
   const [expanded, setExpanded] = useState(false)
   const demo = project.demo || powerBiDemoLinks[project.title] || streamlitDemoLinks[project.title]
   return (
-    <motion.article initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ delay: index * 0.07 }} className="group bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden project-card" style={{ perspective: 900 }}>
+    <motion.article whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ delay: index * 0.07 }} className="group bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden project-card" style={{ perspective: 900 }}>
       <div className="aspect-video bg-surface-container-high overflow-hidden relative">
         <img alt={`${project.title} project preview`} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src={project.imageSrc} />
         <div className="absolute inset-0 bg-gradient-to-t from-[#09171d]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

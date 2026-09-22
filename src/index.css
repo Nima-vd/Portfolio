@@ -132,6 +132,15 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @media (max-width: 640px) {
   html { scroll-padding-top: 76px; }
   section[id] { scroll-margin-top: 76px; }
+  .py-stack-xl { padding-top: 56px; padding-bottom: 56px; }
+  .mb-stack-lg { margin-bottom: 32px; }
+  .mt-stack-xl { margin-top: 56px; }
+  .gap-stack-lg { gap: 32px; }
+  .gap-stack-md { gap: 20px; }
+  #projects { padding-top: 24px; padding-bottom: 40px; }
+  #projects > div > .mb-stack-lg { margin-bottom: 20px; }
+  #projects > div > .mb-stack-md { margin-bottom: 20px; }
+  #projects > div > .flex.gap-2 { margin-bottom: 12px; }
   .hero-grid { min-height: 0; }
   .hero-grid { background-size: 40px 40px; }
   .hero-blob { filter: blur(52px); transform: scale(0.75); }
