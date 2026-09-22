@@ -66,7 +66,7 @@ export default function Header() {
     window.requestAnimationFrame(() => {
       const headerHeight = headerRef.current?.offsetHeight ?? 0
       const targetTop = target.getBoundingClientRect().top + window.scrollY - headerHeight
-      window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' })
+      window.scrollTo({ top: Math.max(0, targetTop), behavior: 'auto' })
       window.history.replaceState(null, '', `#${id}`)
     })
   }
@@ -129,9 +129,9 @@ export default function Header() {
           >
             <div className="max-w-container-max mx-auto px-margin-mobile py-3 grid gap-1">
               {navItems.map(item => (
-                <button key={item.id} type="button" onClick={() => navigateTo(item.id)} className={`text-left px-3 py-3 rounded-lg font-label-md text-label-md ${activeId === item.id ? 'bg-white/10 text-primary' : 'text-secondary'}`}>
+                <a key={item.id} href={`#${item.id}`} onClick={() => { setMenuOpen(false); setActiveId(item.id) }} className={`text-left px-3 py-3 rounded-lg font-label-md text-label-md ${activeId === item.id ? 'bg-white/10 text-primary' : 'text-secondary'}`}>
                   {item.label}
-                </button>
+                </a>
               ))}
             </div>
           </motion.nav>

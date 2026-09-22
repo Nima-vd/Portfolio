@@ -8,7 +8,6 @@
 html {
   background: #09171d;
   scroll-padding-top: 88px;
-  scroll-behavior: smooth;
 }
 
 section[id] {
