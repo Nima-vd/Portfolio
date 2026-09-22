@@ -14,11 +14,10 @@ export const staggerVariants = {
 }
 
 export function Reveal({ children, delay = 0, className = '' }) {
-  const reduceMotion = useReducedMotion()
   return (
     <motion.div
       className={className}
-      initial={reduceMotion ? false : 'hidden'}
+      initial={false}
       variants={revealVariants}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
