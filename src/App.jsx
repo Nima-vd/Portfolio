@@ -6,7 +6,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import ProfessionalProfile from './components/ProfessionalProfile'
 import Education from './components/Education'
-import Certificates from './components/Certificates'
+import Experience from './components/Experience'
 import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Passions from './components/Passions'
@@ -44,7 +44,7 @@ function App() {
         <Reveal><About /></Reveal>
         <Reveal delay={0.05}><ProfessionalProfile /></Reveal>
         <Reveal delay={0.05}><Education /></Reveal>
-        <Reveal delay={0.05}><Certificates /></Reveal>
+        <Reveal delay={0.05}><Experience /></Reveal>
         <Reveal delay={0.05}><Skills /></Reveal>
         <Reveal delay={0.05}><Projects /></Reveal>
         <Reveal delay={0.05}><Passions /></Reveal>
