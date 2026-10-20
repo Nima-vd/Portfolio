@@ -46,7 +46,7 @@ export default function ProfessionalProfile() {
         <div className="profile-intro grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-stack-lg items-end">
           <div>
             <p className="eyebrow">Professional profile</p>
-            <h2 className="font-headline-md text-headline-md text-on-surface mt-3">Aspiring Data Analyst, driven by data and curiosity.</h2>
+            <h2 className="font-headline-md text-headline-md text-on-surface mt-3">Aspiring Data Analyst, driven by data and curiosity. Passionate about transforming raw data into meaningful insights, uncovering business trends, and supporting data-driven decision-making using Power BI, SQL, Excel, and Python.</h2>
           </div>
           <div className="profile-learning glass-panel">
             <div className="flex items-center gap-3 text-primary">
