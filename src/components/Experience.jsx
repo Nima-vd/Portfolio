@@ -24,7 +24,7 @@ const experience = [
     date: 'Issued Aug 2026 · Expires Dec 2036',
     icon: Award,
     description: 'Successfully completed the 24+ hour Data Analyst Bootcamp by Alex Freberg, covering SQL, Excel, Python, Power BI, R, and AWS.',
-    link: 'https://www.youtube.com/watch?v=cnjhHZNJEDk&t=96030s',
+    link: 'https://www.linkedin.com/in/nima-norbu-sherpa-026819262/overlay/Certifications/763652976/treasury/?profileId=ACoAAECMjd4BLxOdGRq3gFLjever7NBMwxz1280',
     linkLabel: 'View credential',
   },
   {
